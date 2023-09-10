@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import './Header.scss'
 
-const Navbar = () => {
+const Header = () => {
   const { isAuth } = useSelector((state) => state.auth)
 
   return (
-    <nav className='navbar navbar-light bg-light'>
+    <div className='header-wrapper'>
       <div className='container'>
+        <ul>
         <div>
           <NavLink to='/'>
             <span className='navbar-brand mb-0 h1'>Home</span>
@@ -30,9 +32,10 @@ const Navbar = () => {
             </NavLink>
           </div>
         )}
+        </ul>
       </div>
-    </nav>
+    </div>
   )
 }
 
-export default Navbar
+export default Header

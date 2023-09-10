@@ -1,39 +1,39 @@
 import { useState } from 'react'
-import { onLogin } from '../api/auth'
-import Layout from '../components/layout'
-import { useDispatch } from 'react-redux'
-import { authenticateUser } from '../redux/slices/authSlice'
+import { onRegistration } from '../../api/auth'
+import Header from '../Header/Header'
 
-const Login = () => {
+const Register = () => {
   const [values, setValues] = useState({
     email: '',
     password: '',
   })
   const [error, setError] = useState(false)
+  const [success, setSuccess] = useState(false)
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
   }
 
-  const dispatch = useDispatch()
   const onSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      await onLogin(values)
-      dispatch(authenticateUser())
+      const { data } = await onRegistration(values)
 
-      localStorage.setItem('isAuth', 'true')
+      setError('')
+      setSuccess(data.message)
+      setValues({ email: '', password: '' })
     } catch (error) {
-      console.log(error.response.data.errors[0].msg)
       setError(error.response.data.errors[0].msg)
+      setSuccess('')
     }
   }
 
   return (
-    <Layout>
+    <div>
+ <Header/>
       <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
-        <h1>Login</h1>
+        <h1>Register</h1>
 
         <div className='mb-3'>
           <label htmlFor='email' className='form-label'>
@@ -68,13 +68,15 @@ const Login = () => {
         </div>
 
         <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
+        <div style={{ color: 'green', margin: '10px 0' }}>{success}</div>
 
         <button type='submit' className='btn btn-primary'>
           Submit
         </button>
       </form>
-    </Layout>
+  
+    </div>
   )
 }
 
-export default Login
+export default Register

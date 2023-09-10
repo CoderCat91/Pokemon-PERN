@@ -5,10 +5,10 @@ import {
   Route,
   Outlet,
 } from 'react-router-dom'
-import Dashboard from './pages/dashboard'
-import Home from './pages/home'
-import Login from './pages/login'
-import Register from './pages/register'
+import Dashboard from './components/Dashboard/Dashboard'
+import Home from './components/Home/Home'
+import Login from './components/Login/Login'
+import Register from './components/Register/Register'
 import { useSelector } from 'react-redux'
 
 const PrivateRoutes = () => {

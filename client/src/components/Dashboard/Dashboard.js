@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchProtectedInfo, onLogout } from '../api/auth'
-import Layout from '../components/layout'
-import { unauthenticateUser } from '../redux/slices/authSlice'
+import { fetchProtectedInfo, onLogout } from '../../api/auth'
+import Layout from '../layout'
+import { unauthenticateUser } from '../../redux/slices/authSlice'
 
 const Dashboard = () => {
   const dispatch = useDispatch()
