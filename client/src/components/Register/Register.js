@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { onRegistration } from '../../api/auth'
 import Header from '../Header/Header'
+import './Register.scss';
 
 const Register = () => {
   const [values, setValues] = useState({

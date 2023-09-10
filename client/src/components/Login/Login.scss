@@ -1,0 +1,34 @@
+@import '../../common/style.scss';
+
+
+.main-wrapper {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+.login-wrapper {
+    width: 50%;
+    padding: 20px;
+}
+
+.picture-wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.picture-wrapper img {
+    width: 500px;
+    height: 550px;
+    background-size: cover;
+}
+
+h1 {
+    padding: 10px;
+}
+
+button {
+    margin-top: 10px;
+}

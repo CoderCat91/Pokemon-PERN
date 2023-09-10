@@ -3,7 +3,10 @@ import { onLogin } from '../../api/auth'
 //import Layout from '../components/layout'
 import { useDispatch } from 'react-redux'
 import { authenticateUser } from '../../redux/slices/authSlice'
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import charizard from '../../images/ezgif.com-webp-to-png (6).png'
+import './Login.scss';
+
 const Login = () => {
   const [values, setValues] = useState({
     email: '',
@@ -33,6 +36,8 @@ const Login = () => {
   return (
     <div>
   <Header/>
+  <div className='main-wrapper'>
+    <div className='login-wrapper'>
       <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
         <h1>Login</h1>
 
@@ -47,7 +52,7 @@ const Login = () => {
             id='email'
             name='email'
             value={values.email}
-            placeholder='test@gmail.com'
+            placeholder='Your email...'
             required
           />
         </div>
@@ -63,17 +68,23 @@ const Login = () => {
             className='form-control'
             id='password'
             name='password'
-            placeholder='passwod'
+            placeholder='Password'
             required
           />
         </div>
 
         <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
 
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit' className='btn btn-danger'>
           Submit
         </button>
       </form>
+      </div>
+    <div className='picture-wrapper'>
+      <img src={charizard} alt='charizard'/>
+      </div>      
+      </div>
+
       </div>
   )
 }
