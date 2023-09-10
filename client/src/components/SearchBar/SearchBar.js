@@ -1,7 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react';
 import './SearchBar.scss';
-import PokemonFinder from '../../api/PokemonFinder';
-import {PokemonContext} from '../../context/PokemonContext'
 
 const SearchBar = () => {
     const [input, setInput] = useState("");
