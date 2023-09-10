@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchProtectedInfo, onLogout } from '../../api/auth'
-import Layout from '../layout'
 import { unauthenticateUser } from '../../redux/slices/authSlice'
+import Header from '../Header/Header';
 
 const Dashboard = () => {
   const dispatch = useDispatch()
@@ -37,19 +37,15 @@ const Dashboard = () => {
   }, [])
 
   return loading ? (
-    <Layout>
+    <div>
+    <Header/>
       <h1>Loading...</h1>
-    </Layout>
+      </div>
   ) : (
     <div>
-      <Layout>
+      <Header/>
         <h1>Dashboard</h1>
         <h2>{protectedData}</h2>
-
-        <button onClick={() => logout()} className='btn btn-primary'>
-          Logout
-        </button>
-      </Layout>
     </div>
   )
 }

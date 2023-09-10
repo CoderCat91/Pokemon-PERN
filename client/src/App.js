@@ -8,8 +8,10 @@ import {
 import Dashboard from './components/Dashboard/Dashboard'
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
-import Register from './components/Register/Register'
-import { useSelector } from 'react-redux'
+import Register from './components/Register/Register';
+import PokeDex from './components/PokeDex/PokeDex'
+import { useSelector } from 'react-redux';
+import './App.css'
 
 const PrivateRoutes = () => {
   const { isAuth } = useSelector((state) => state.auth)
@@ -28,6 +30,7 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/pokedex' element={<PokeDex />} />
 
         <Route element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<Dashboard />} />

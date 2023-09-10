@@ -1,40 +1,64 @@
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
+import logo from '../../images/Pokemon_logo_PNG2.png'
+import { unauthenticateUser } from '../../redux/slices/authSlice'
+import { onLogout } from '../../api/auth'
 
 const Header = () => {
   const { isAuth } = useSelector((state) => state.auth)
+const dispatch = useDispatch()
+
+  const signOut = async () => {
+    try {
+      await onLogout()
+
+      dispatch(unauthenticateUser())
+      localStorage.removeItem('isAuth')
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
 
   return (
     <div className='header-wrapper'>
-      <div className='container'>
         <ul>
-        <div>
-          <NavLink to='/'>
-            <span className='navbar-brand mb-0 h1'>Home</span>
+        <div className='home-div'>
+          <NavLink to='/' style={{ textDecoration: 'none', color: 'black' }}>
+            <span>Home</span>
+          </NavLink>
+          <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black' }}>
+            <span>PokeDex</span>
           </NavLink>
         </div>
 
+  <div className='header-logo'>
+  <img src={logo} alt='pokemon'/>
+</div>
+
         {isAuth ? (
-          <div>
-            <NavLink to='/dashboard' className='mx-3'>
+         <div className='auth-div'>
+            <NavLink to='/dashboard' style={{ textDecoration: 'none', color: 'black' }}>
               <span>Dashboard</span>
             </NavLink>
+            <button onClick={() => signOut()} className='btn btn-danger'>
+          Logout
+        </button>
           </div>
         ) : (
-          <div>
-            <NavLink to='/login'>
+          <div className='log-div'>
+           <NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }}>
               <span>Login</span>
             </NavLink>
 
-            <NavLink to='/register' className='mx-3'>
+            <NavLink to='/register' style={{ textDecoration: 'none', color: 'black' }}>
               <span>Register</span>
             </NavLink>
           </div>
         )}
         </ul>
       </div>
-    </div>
   )
 }
 
