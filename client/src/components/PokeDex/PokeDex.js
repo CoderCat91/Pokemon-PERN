@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import Header from '../Header/Header'
+import SearchBar from '../SearchBar/SearchBar';
 import PokemonFinder from '../../api/PokemonFinder';
 import {PokemonContext} from '../../context/PokemonContext';
 import './PokeDex.scss'
@@ -28,9 +29,9 @@ useEffect(() => {
 
     return (
         <div>
-            <Header/>  <div className="list-group container">
-        
-        
+            <Header/>  
+            <SearchBar/>
+            <div className="list-group container">
         <table className="table table-hover table-dark">
           <thead>
             <tr className="bg-primary">
@@ -43,7 +44,6 @@ useEffect(() => {
               <th scope="col">Evolves into:</th>
               <th scope='col'>Rating</th>
               <th scope="col">Profile</th>
-              <th scope="col">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -52,7 +52,7 @@ useEffect(() => {
              .map((pokemon) => {
 
         return (
-   <tr>
+   <tr    key={pokemon.id}>
 
 <td>{pokemon.pokemon_num}</td>
    <td className='pokedex-images'><img src={pokemon.images} alt='pokemon'/></td>

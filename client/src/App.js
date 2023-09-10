@@ -12,9 +12,10 @@ import Register from './components/Register/Register';
 import PokeDex from './components/PokeDex/PokeDex';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails'
 import { useSelector } from 'react-redux';
-import './App.css'
+import './App.css';
 import {PokemonContextProvider} from './context/PokemonContext'
 const PrivateRoutes = () => {
+  
   const { isAuth } = useSelector((state) => state.auth)
 
   return <>{isAuth ? <Outlet /> : <Navigate to='/login' />}</>
