@@ -19,21 +19,37 @@ ul {
     justify-content: space-around;
     height: 120px;
     width: 100%;
+
 }
 
 
 .home-div {
     width: 30%;
+    height: 120px;
     display: flex;
     justify-content: space-around;
     align-self: center;
 }
 .log-div {
     width: 30%;
+    height: 120px;
     display: flex;
     justify-content: space-around;
     align-self: center;
 }
+
+
+.auth-div {
+    width: 30%;
+    height: 120px;
+    display: flex;
+    justify-content: space-around;
+     align-self: center;
+
+}
+
+
+
 .header-logo img {
     height: 100px;
     width: 250px;

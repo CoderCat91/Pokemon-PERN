@@ -14,6 +14,7 @@ import PokemonDetails from './components/PokemonDetails/PokemonDetails'
 import { useSelector } from 'react-redux';
 import './App.css';
 import {PokemonContextProvider} from './context/PokemonContext'
+
 const PrivateRoutes = () => {
   
   const { isAuth } = useSelector((state) => state.auth)
@@ -29,6 +30,7 @@ const RestrictedRoutes = () => {
 
 const App = () => {
   return (
+    <div>
     <PokemonContextProvider>
     <BrowserRouter>
       <Routes>
@@ -46,6 +48,7 @@ const App = () => {
       </Routes>
     </BrowserRouter>
     </PokemonContextProvider>
+    </div>
   )
 }
 

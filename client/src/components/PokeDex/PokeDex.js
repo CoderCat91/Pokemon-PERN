@@ -70,7 +70,6 @@ useEffect(() => {
           </tbody>
         </table>
       </div>
-        <h2>a</h2>
     </div>
   )
 }

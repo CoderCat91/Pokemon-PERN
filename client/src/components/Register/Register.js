@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { onRegistration } from '../../api/auth'
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import image from '../../images/pngegg (2).png'
 import './Register.scss';
 
 const Register = () => {
@@ -33,6 +34,8 @@ const Register = () => {
   return (
     <div>
  <Header/>
+ <div className='register-wrapper'>
+  <div className='register-inner'>
       <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
         <h1>Register</h1>
 
@@ -47,7 +50,7 @@ const Register = () => {
             id='email'
             name='email'
             value={values.email}
-            placeholder='test@gmail.com'
+            placeholder='Your email...'
             required
           />
         </div>
@@ -63,7 +66,7 @@ const Register = () => {
             className='form-control'
             id='password'
             name='password'
-            placeholder='passwod'
+            placeholder='Password'
             required
           />
         </div>
@@ -71,11 +74,29 @@ const Register = () => {
         <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
         <div style={{ color: 'green', margin: '10px 0' }}>{success}</div>
 
-        <button type='submit' className='btn btn-primary'>
+        <button type='submit' className='btn btn-danger'>
           Submit
         </button>
       </form>
-  
+    </div>
+    <div className='info-wrapper'>
+    <h1>Welcome to the PokeDex!</h1>
+    <div className='info-inner'>
+    <div className='left'>
+<img src={image} alt='pikachu'/>
+    </div>
+    <div className='right'>
+<div className='card'>
+  <div className='card-inner'>
+    <h3>Welcome!</h3>
+    <h4>After you register and login, you can use our Pokedex to create your own!
+    Add your favourite Pokemon to your Pokedex and learn more about them!</h4>
+  </div>
+</div>
+    </div>
+    </div>
+  </div>
+    </div>
     </div>
   )
 }

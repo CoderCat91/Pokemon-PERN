@@ -25,10 +25,10 @@ const dispatch = useDispatch()
     <div className='header-wrapper'>
         <ul>
         <div className='home-div'>
-          <NavLink to='/' style={{ textDecoration: 'none', color: 'black' }}>
+          <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>Home</span>
           </NavLink>
-          <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black' }}>
+          <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>PokeDex</span>
           </NavLink>
         </div>
@@ -39,20 +39,20 @@ const dispatch = useDispatch()
 
         {isAuth ? (
          <div className='auth-div'>
-            <NavLink to='/dashboard' style={{ textDecoration: 'none', color: 'black' }}>
+            <NavLink to='/dashboard' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
               <span>Dashboard</span>
             </NavLink>
-            <button onClick={() => signOut()} className='btn btn-danger'>
+            <button onClick={() => signOut()} className='btn btn-danger' style={{height: '40px', alignSelf: 'center' }}>
           Logout
         </button>
           </div>
         ) : (
           <div className='log-div'>
-           <NavLink to='/login' style={{ textDecoration: 'none', color: 'black' }}>
+           <NavLink to='/login' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
               <span>Login</span>
             </NavLink>
 
-            <NavLink to='/register' style={{ textDecoration: 'none', color: 'black' }}>
+            <NavLink to='/register' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
               <span>Register</span>
             </NavLink>
           </div>
