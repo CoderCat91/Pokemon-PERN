@@ -1,14 +1,21 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Header from '../Header/Header'
 import SearchBar from '../SearchBar/SearchBar';
 import PokemonFinder from '../../api/PokemonFinder';
 import {PokemonContext} from '../../context/PokemonContext';
 import './PokeDex.scss'
 import { useNavigate } from 'react-router-dom';
+import Buttons from './PokeButtons';
+import SearchResultsList from '../SearchBar/SearchResultsList';
+
 
 const PokeDex = () => {
 const { pokemons, setPokemons } = useContext(PokemonContext);
+const [item, setItem] = useState(pokemons);
+console.log('item',item)
 const navigate = useNavigate();
+const [results, setResults] = useState([]);
+
 
 useEffect(() => {
         (async () => {
@@ -22,6 +29,20 @@ useEffect(() => {
         })();  // making sure you run the function, not just defining it!
       }, [setPokemons]);
 
+      const menuItems = [...new Set(pokemons.map((Val) => Val.type))];
+      console.log(menuItems)
+        
+      const filterItem = (curcat) => {
+          const newItem = pokemons.filter((newVal) => {
+            return newVal.type === curcat;
+          });
+          setPokemons(newItem);
+          console.log('new item', newItem)
+        };
+      
+    
+    
+
       const selectPokemon = (id) => {
         navigate(`/details/${id}`);
       };
@@ -30,7 +51,15 @@ useEffect(() => {
     return (
         <div>
             <Header/>  
-            <SearchBar/>
+            <div className="search-bar-container">
+        <SearchBar setResults={setResults} />
+        {results && results.length > 0 && <SearchResultsList results={results} />}
+      </div>
+            <Buttons
+      filterItem={filterItem}
+      setPokemons={setItem}
+      menuItems={menuItems}
+    />
             <div className="list-group container">
         <table className="table table-hover table-dark">
           <thead>
@@ -46,7 +75,7 @@ useEffect(() => {
               <th scope="col">Profile</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody item={item}>
           {pokemons && pokemons
              .sort(({ id: previousID }, { id: currentID }) => previousID - currentID)
              .map((pokemon) => {

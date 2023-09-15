@@ -34,7 +34,9 @@ const dispatch = useDispatch()
         </div>
 
   <div className='header-logo'>
+    <NavLink to='/'>
   <img src={logo} alt='pokemon'/>
+  </NavLink>
 </div>
 
         {isAuth ? (

@@ -8,18 +8,24 @@ import SearchResultsList from '../SearchBar/SearchResultsList';
 import './PokemonDetails.scss';
 
 const PokemonDetails = () => {
-  const [results, setResults] = useState([]);
-    const { id } = useParams();
-    const { selectedPokemon, setSelectedPokemon } = useContext(
-      PokemonContext
-    );
+const [results, setResults] = useState([]);
+const { id } = useParams();
+const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext);
+console.log(selectedPokemon);
+const [nextPokemon, setNextPokemon] = useState(0);
+
+    function handleClick() {
+     setSelectedPokemon(selectedPokemon + 1);
+    }
+    console.log(handleClick)
+  
+
+    
   
     useEffect(() => {
       const fetchData = async () => {
         try {
           const response = await PokemonFinder.get(`/${id}`);
-          console.log(response);
-  
           setSelectedPokemon(response.data.data.pokemon);
         } catch (err) {
           console.log(err);
@@ -28,6 +34,10 @@ const PokemonDetails = () => {
   
       fetchData();
     }, []);
+
+   
+    
+    
     return (
       <div>
         <Header/>
@@ -55,7 +65,7 @@ const PokemonDetails = () => {
             </div>
             <div className='card-bottom'>
             <button className='btn btn-danger'>Previous</button>
-            <button className='btn btn-danger'>Next</button>
+            <button onClick="{HandleAnswerButtonClick}" className='btn btn-danger'>Next</button>
               </div>
               </div>
           </div>
