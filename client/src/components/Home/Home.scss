@@ -1,0 +1,48 @@
+@import '../../common/style.scss';
+
+.home-wrapper {
+    height: 500px;
+    width: 100%;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+.home-inner {
+    display: wrap;
+}
+.home-inner p {
+    padding: 20px;
+}
+
+.home-media {
+    height: 300px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+a {
+    text-decoration: none;
+}
+figure {
+    background-color: rgba(243, 28, 28, 0.471);
+    height: 300px;
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 8px rgb(255, 0, 0);
+}
+figure img {
+    height: 250px;
+    width: 250px;
+    background-size: cover;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+figcaption {
+   text-align: center;
+   color: black;
+   text-transform: capitalize;
+}

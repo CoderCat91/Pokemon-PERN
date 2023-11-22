@@ -7,17 +7,15 @@ import SearchBar from '../SearchBar/SearchBar';
 import SearchResultsList from '../SearchBar/SearchResultsList';
 import './PokemonDetails.scss';
 
-const PokemonDetails = () => {
+const PokemonDetails = ({pokemon}) => {
 const [results, setResults] = useState([]);
 const { id } = useParams();
 const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext);
-console.log(selectedPokemon);
+console.log('selected',selectedPokemon);
 const [nextPokemon, setNextPokemon] = useState(0);
 
-    function handleClick() {
-     setSelectedPokemon(selectedPokemon + 1);
-    }
-    console.log(handleClick)
+
+   
   
 
     
@@ -27,6 +25,7 @@ const [nextPokemon, setNextPokemon] = useState(0);
         try {
           const response = await PokemonFinder.get(`/${id}`);
           setSelectedPokemon(response.data.data.pokemon);
+          console.log(response.data.data.pokemon)
         } catch (err) {
           console.log(err);
         }
@@ -65,7 +64,7 @@ const [nextPokemon, setNextPokemon] = useState(0);
             </div>
             <div className='card-bottom'>
             <button className='btn btn-danger'>Previous</button>
-            <button onClick="{HandleAnswerButtonClick}" className='btn btn-danger'>Next</button>
+            <button onClick="" className='btn btn-danger'>Next</button>
               </div>
               </div>
           </div>

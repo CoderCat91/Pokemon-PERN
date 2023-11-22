@@ -13,7 +13,8 @@ import PokeDex from './components/PokeDex/PokeDex';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails'
 import { useSelector } from 'react-redux';
 import './App.css';
-import {PokemonContextProvider} from './context/PokemonContext'
+import {PokemonContext, PokemonContextProvider} from './context/PokemonContext'
+import { useContext } from 'react';
 
 const PrivateRoutes = () => {
   
@@ -36,7 +37,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/pokedex' element={<PokeDex />} />
-        <Route path='/details/:id' element={<PokemonDetails />} />
+        <Route path='/details/:id' element={<PokemonDetails/>} />
         <Route element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<Dashboard />} />
         </Route>

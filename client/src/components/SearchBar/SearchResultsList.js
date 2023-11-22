@@ -6,6 +6,7 @@ const SearchResultsList = ({ results }) => {
     <div className="results-list">
       {results?.map((result, id) => {
         return <SearchResult result={result.name} 
+        result_id={result.id}
         key={id} />;
       })}
     </div>
