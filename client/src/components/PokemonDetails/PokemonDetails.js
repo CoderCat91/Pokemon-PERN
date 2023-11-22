@@ -6,13 +6,15 @@ import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import SearchResultsList from '../SearchBar/SearchResultsList';
 import './PokemonDetails.scss';
+import { useNavigate } from 'react-router-dom';
 
 const PokemonDetails = ({pokemon}) => {
 const [results, setResults] = useState([]);
 const { id } = useParams();
 const { selectedPokemon, setSelectedPokemon } = useContext(PokemonContext);
 console.log('selected',selectedPokemon);
-const [nextPokemon, setNextPokemon] = useState(0);
+const navigate = useNavigate();
+
 
 
    
@@ -35,6 +37,9 @@ const [nextPokemon, setNextPokemon] = useState(0);
     }, []);
 
    
+    const goPokedex = () => {
+      navigate(`/pokedex`);
+    };
     
     
     return (
@@ -63,8 +68,7 @@ const [nextPokemon, setNextPokemon] = useState(0);
               Evolves into: {selectedPokemon.evolves_into}
             </div>
             <div className='card-bottom'>
-            <button className='btn btn-danger'>Previous</button>
-            <button onClick="" className='btn btn-danger'>Next</button>
+            <button onClick={() => goPokedex()}className='btn btn-danger'>Pokedex</button>
               </div>
               </div>
           </div>
