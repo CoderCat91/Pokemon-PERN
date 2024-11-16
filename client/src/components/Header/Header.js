@@ -1,56 +1,54 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
 import logo from '../../images/Pokemon_logo_PNG2.png'
-import { unauthenticateUser } from '../../redux/slices/authSlice'
+import { AuthContext } from '../../context/authContext'
 import { onLogout } from '../../api/auth'
 
 const Header = () => {
-  const { isAuth } = useSelector((state) => state.auth)
-const dispatch = useDispatch()
+  const { isAuth, unauthenticateUser } = useContext(AuthContext) 
 
   const signOut = async () => {
     try {
       await onLogout()
 
-      dispatch(unauthenticateUser())
-      localStorage.removeItem('isAuth')
+      unauthenticateUser() 
+      localStorage.removeItem('isAuth') 
     } catch (error) {
       console.log(error.response)
     }
   }
 
-
   return (
     <div className='header-wrapper'>
-        <ul>
+      <ul>
         <div className='home-div'>
           <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>Home</span>
           </NavLink>
           <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-            <span>PokeDex</span>
+            <span>Pokemon</span>
           </NavLink>
         </div>
 
-  <div className='header-logo'>
-    <NavLink to='/'>
-  <img src={logo} alt='pokemon'/>
-  </NavLink>
-</div>
+        <div className='header-logo'>
+          <NavLink to='/'>
+            <img src={logo} alt='pokemon' />
+          </NavLink>
+        </div>
 
         {isAuth ? (
-         <div className='auth-div'>
+          <div className='auth-div'>
             <NavLink to='/dashboard' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <span>Dashboard</span>
+              <span>PokeDex</span>
             </NavLink>
-            <button onClick={() => signOut()} className='btn btn-danger' style={{height: '40px', alignSelf: 'center' }}>
-          Logout
-        </button>
+            <button onClick={() => signOut()} className='btn btn-danger' style={{ height: '40px', alignSelf: 'center' }}>
+              Logout
+            </button>
           </div>
         ) : (
           <div className='log-div'>
-           <NavLink to='/login' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
+            <NavLink to='/login' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
               <span>Login</span>
             </NavLink>
 
@@ -59,8 +57,8 @@ const dispatch = useDispatch()
             </NavLink>
           </div>
         )}
-        </ul>
-      </div>
+      </ul>
+    </div>
   )
 }
 

@@ -12,7 +12,6 @@ import SearchResultsList from '../SearchBar/SearchResultsList';
 const PokeDex = () => {
 const { pokemons, setPokemons } = useContext(PokemonContext);
 const [item, setItem] = useState(pokemons);
-console.log('item',item)
 const navigate = useNavigate();
 const [results, setResults] = useState([]);
 
@@ -21,23 +20,22 @@ useEffect(() => {
         (async () => {
           try {
             const response = await PokemonFinder.get("/");
-            console.log(response.data.data.pokemon);
+            console.log(response.data.data.pokemon, "pokemon");
             setPokemons(response.data.data.pokemon)
           } catch (err) {
             console.log(err);
           }
-        })();  // making sure you run the function, not just defining it!
+        })();  
       }, [setPokemons]);
 
-      const menuItems = [...new Set(pokemons.map((Val) => Val.type))];
-      console.log(menuItems)
+      const pokeType = [...new Set(pokemons.map((val) => val.type))];
+
         
       const filterItem = (curcat) => {
           const newItem = pokemons.filter((newVal) => {
             return newVal.type === curcat;
           });
           setPokemons(newItem);
-          console.log('new item', newItem)
         };
       
     
@@ -58,7 +56,7 @@ useEffect(() => {
             <Buttons
       filterItem={filterItem}
       setPokemons={setItem}
-      menuItems={menuItems}
+      pokeType={pokeType}
     />
             <div className="list-group container">
         <table className="table table-hover table-dark">
@@ -67,11 +65,6 @@ useEffect(() => {
             <th scope="col">PokeDex No.</th>
             <th scope ='col'>Image</th>
               <th scope="col">Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">Health</th>
-              <th scope="col">Attacks</th>
-              <th scope="col">Evolves into:</th>
-              <th scope='col'>Rating</th>
               <th scope="col">Profile</th>
             </tr>
           </thead>
@@ -86,11 +79,6 @@ useEffect(() => {
 <td>{pokemon.pokemon_num}</td>
    <td className='pokedex-images'><img src={pokemon.images} alt='pokemon'/></td>
    <td>{pokemon.name}</td>
-   <td>{pokemon.type}</td>
-   <td>{pokemon.health}</td>
-   <td>{pokemon.attacks}</td>
-   <td>{pokemon.evolves_into}</td>
-   <td>rating</td>
    <td><button onClick={() => selectPokemon(pokemon.id)}className='btn btn-danger'>Profile</button></td>
 </tr>
                   )
