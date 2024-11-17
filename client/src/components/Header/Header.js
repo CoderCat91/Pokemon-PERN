@@ -26,8 +26,8 @@ const Header = () => {
           <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>Home</span>
           </NavLink>
-          <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-            <span>Pokemon</span>
+          <NavLink to='/pokemon' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
+            <span>Pokémon</span>
           </NavLink>
         </div>
 
@@ -39,10 +39,10 @@ const Header = () => {
 
         {isAuth ? (
           <div className='auth-div'>
-            <NavLink to='/dashboard' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <span>PokeDex</span>
+            <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
+              <span>Pokédex</span>
             </NavLink>
-            <button onClick={() => signOut()} className='btn btn-danger' style={{ height: '40px', alignSelf: 'center' }}>
+            <button onClick={() => signOut()} className='btn btn-danger btn-lg' style={{ alignSelf: 'center', fontWeight: 'bolder', boxShadow: '2px 2px 2px 2px #cecccc' }}>
               Logout
             </button>
           </div>

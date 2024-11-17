@@ -2,7 +2,7 @@
 
 .detail-wrapper {
     width: 100%;
-    height:500px;
+    height:auto;
     display: flex;
     justify-content: center;
 }
@@ -21,13 +21,34 @@
 .card-inner {
     text-align: center;
     width: 80%;
-    max-height: 500px;
+    height: auto;
     border-radius: 20px;
     margin: 0 auto;
 }
 
+
+.card-middle p {
+    font-weight: 400;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
+.card-bottom button:nth-child(2) {
+    margin-left: 2px;
+  }
+.card-bottom button:last-child {
+    margin-left: 10px;
+  }
+
 .detail-image img {
-height: 250px;
-width: 250px;
+height: 200px;
+width: 200px;
 background-size: cover;
 }

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthContextProvider, AuthContext } from './context/authContext'; // Import context
-import Dashboard from './components/Dashboard/Dashboard';
+import Pokedex from './components/Pokedex/Pokedex';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
-import PokeDex from './components/PokeDex/PokeDex';
+import Pokemon from './components/Pokemon/Pokemon';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails'
 import { PokemonContextProvider} from './context/PokemonContext'
 
@@ -29,10 +29,10 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/pokedex' element={<PokeDex />} />
+        <Route path='/pokemon' element={<Pokemon />} />
         <Route path='/details/:id' element={<PokemonDetails/>} />
         <Route element={<PrivateRoutes />}>
-          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/pokedex' element={<Pokedex />} />
         </Route>
 
         <Route element={<RestrictedRoutes />}>

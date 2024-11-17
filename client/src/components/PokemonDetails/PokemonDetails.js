@@ -1,14 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { PokemonContext } from '../../context/PokemonContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
-import SearchResultsList from '../SearchBar/SearchResultsList';
 import './PokemonDetails.scss';
 import DashboardFinder from '../../api/DashboardFinder';
 
 const PokemonDetails = () => {
-  const [results, setResults] = useState([]);
   const { id } = useParams();  
   const { pokemons, selectedPokemon, setSelectedPokemon } = useContext(PokemonContext); // Access the Pokémon list and selected Pokémon from context
   const navigate = useNavigate();
@@ -41,7 +39,7 @@ const PokemonDetails = () => {
 
   const goToPreviousPokemon = () => {
     const currentIndex = pokemons.findIndex((pokemon) => pokemon.pokemon_num === selectedPokemon.pokemon_num);
-    const previousPokemon = pokemons[(currentIndex - 1 + pokemons.length) % pokemons.length]; // Get the previous Pokémon (circular)
+    const previousPokemon = pokemons[(currentIndex - 1 + pokemons.length) % pokemons.length]; 
 
     setSelectedPokemon(previousPokemon); 
 
@@ -65,7 +63,7 @@ const PokemonDetails = () => {
       navigate(`/dashboard`);
     } catch (err) {
       console.error("Error adding Pokémon to dashboard:", err);
-      alert("There was an error adding the Pokémon to your dashboard.");
+      alert("There was an error adding the Pokemon to your dashboard.");
     }
   };
 
@@ -74,8 +72,8 @@ const PokemonDetails = () => {
     <div>
       <Header />
       <div className="search-bar-container">
-        <SearchBar setResults={setResults} />
-        {results && results.length > 0 && <SearchResultsList results={results} />}
+        <SearchBar/>
+        
       </div>
 
       {selectedPokemon && (
@@ -91,21 +89,21 @@ const PokemonDetails = () => {
               </div>
 
               <div className="card-middle">
-                <p>Type: {selectedPokemon.type}</p>
-                <p>Health: {selectedPokemon.health} HP</p>
-                <p>Attacks: {selectedPokemon.attacks}</p>
-                <p>Evolves into: {selectedPokemon.evolves_into}</p>
+                <p><span>Type:</span> {selectedPokemon.type}</p>
+                <p><span>Health:</span> {selectedPokemon.health} HP</p>
+                <p><span>Attacks:</span> {selectedPokemon.attacks}</p>
+                <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
               </div>
 
               <div className="card-bottom">
-                <button onClick={goToPreviousPokemon} className="btn btn-danger">
-                  Previous Pokémon
+                <button onClick={goToPreviousPokemon} className="btn btn-dark">
+                  Previous
                 </button>
-                <button onClick={goToNextPokemon} className="btn btn-danger">
-                  Next Pokémon
+                <button onClick={goToNextPokemon} className="btn btn-dark">
+                  Next
                 </button>
                 <button onClick={addPokemonToDashboard} className="btn btn-success">
-                  Add to Dashboard
+                  Add to Pokédex
                 </button>
               </div>
             </div>
