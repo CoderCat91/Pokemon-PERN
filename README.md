@@ -16,7 +16,7 @@ A POSTgresql database is connected to a front end react application using expres
 ## Wireframes
 
 The desktop wireframe used for this project.
-![Local Image](/client//Pokemon%20PERN@2x.png)
+![Local Image](/Pokemon%20PERN@2x.png)
 
 ---
 
