@@ -10,6 +10,14 @@
     font-weight: bold;
 }
 
+table {
+    width: 100%;
+    justify-content: center;
+}
+
+.table th, .table td {
+    text-align: center; 
+  }
 td,th {
     font-weight: bolder;
     font-size: larger;

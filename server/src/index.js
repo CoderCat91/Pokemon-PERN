@@ -79,7 +79,7 @@ app.post("/api/v1/dashboard", async (req, res) => {
   try {
     const { pokemon_num, name, type, health, attacks, evolves_into, images } = req.body;
 
-    // Insert the selected Pokémon into the dashboard table
+    // Insert the selected Pokémon into the Pokemon table
     const result = await db.query(
       "INSERT INTO dashboard (pokemon_num, name, type, health, attacks, evolves_into, images) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [pokemon_num, name, type, health, attacks, evolves_into, images]
@@ -87,7 +87,7 @@ app.post("/api/v1/dashboard", async (req, res) => {
 
     res.status(201).json({
       status: "success",
-      data: result.rows[0], // The added Pokémon record
+      data: result.rows[0], 
     });
   } catch (err) {
     console.error(err);

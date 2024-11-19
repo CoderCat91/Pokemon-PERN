@@ -77,7 +77,7 @@ const Pokedex = () => {
         <SearchBar/>
        
       </div>
-      <h1>PokeDex</h1>
+      <h1>Pokédex</h1>
       <div className="list-group container">
         <table className="table table-hover table-light mt-3 pl-1">
           <thead>
