@@ -53,6 +53,7 @@ const SearchBar = () => {
           <img src={ball} alt="Search Pokeball" />
         </button>
       </div>
+      <div>
       {results.length > 0 && (
         <div className="results-list">
           {results.map((pokemon) => (
@@ -65,7 +66,9 @@ const SearchBar = () => {
             </div>
           ))}
         </div>
+        
       )}
+      </div>
     </div>
   );
 };

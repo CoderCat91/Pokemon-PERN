@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
-import { AuthContextProvider, AuthContext } from './context/authContext'; // Import context
+import { AuthContextProvider, AuthContext } from './context/authContext';
 import Pokedex from './components/Pokedex/Pokedex';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
@@ -18,7 +18,7 @@ const PrivateRoutes = () => {
 const RestrictedRoutes = () => {
   const { isAuth } = useContext(AuthContext);
 
-  return !isAuth ? <Outlet /> : <Navigate to='/dashboard' />;
+  return !isAuth ? <Outlet /> : <Navigate to='/home' />;
 };
 
 const App = () => {

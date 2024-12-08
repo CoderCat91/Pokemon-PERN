@@ -36,6 +36,9 @@ const Pokemon = () => {
     navigate(`/details/${id}`);
   };
 
+
+  
+
   return (
     <div>
       <Header />

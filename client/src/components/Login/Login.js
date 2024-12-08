@@ -23,12 +23,12 @@ const Login = () => {
 
     try {
       await onLogin(values)
-      authenticateUser() // Call authenticateUser from context
+      authenticateUser() 
 
-      localStorage.setItem('isAuth', 'true') // Store the auth state in localStorage
+      localStorage.setItem('isAuth', 'true') 
     } catch (error) {
       console.log(error.response.data.errors[0].msg)
-      setError(error.response.data.errors[0].msg) // Set the error message if login fails
+      setError(error.response.data.errors[0].msg) 
     }
   }
 

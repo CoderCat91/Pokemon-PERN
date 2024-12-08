@@ -4,11 +4,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import './PokemonDetails.scss';
-import DashboardFinder from '../../api/DashboardFinder';
+import PokedexFinder from '../../api/PokedexFinder';
+
 
 const PokemonDetails = () => {
   const { id } = useParams();  
-  const { pokemons, selectedPokemon, setSelectedPokemon } = useContext(PokemonContext); // Access the Pokémon list and selected Pokémon from context
+  const { pokemons, selectedPokemon, setSelectedPokemon } = useContext(PokemonContext); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,11 +49,18 @@ const PokemonDetails = () => {
   };
 
 
-  const addPokemonToDashboard = async () => {
+  const addPokemonToPokedex = async () => {
     try {
+      console.log("Selected Pokémon data:", selectedPokemon);
+  
+      // Ensure you're only sending the relevant data (excluding circular references)
       const { pokemon_num, name, type, health, attacks, evolves_into, images } = selectedPokemon;
-      await DashboardFinder.post("/", {
-        pokemon_num,
+      console.log("Sending the following data to the server:", { pokemon_num, name, type, health, attacks, evolves_into, images });
+  
+      // Send to backend
+      await PokedexFinder.post('/add', {
+        user_id: 2, 
+        pokemon_num, 
         name,
         type,
         health,
@@ -60,13 +68,14 @@ const PokemonDetails = () => {
         evolves_into,
         images
       });
-      navigate(`/dashboard`);
-    } catch (err) {
-      console.error("Error adding Pokémon to dashboard:", err);
-      alert("There was an error adding the Pokemon to your dashboard.");
+  
+      navigate(`/pokedex`);
+    } catch (error) {
+      console.error("Error adding Pokémon to Pokedex:", error);
+      alert("There was an error adding the Pokemon to your Pokedex.");
     }
   };
-
+  
 
   return (
     <div>
@@ -102,7 +111,7 @@ const PokemonDetails = () => {
                 <button onClick={goToNextPokemon} className="btn btn-dark">
                   Next
                 </button>
-                <button onClick={addPokemonToDashboard} className="btn btn-success">
+                <button onClick={addPokemonToPokedex} className="btn btn-success">
                   Add to Pokédex
                 </button>
               </div>
