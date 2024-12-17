@@ -24,12 +24,13 @@ The desktop wireframe used for this project.
 List the key technologies and libraries used to build this project.
 
 - **Frontend**:
-  - **React**: For building interactive UI components.
-  - **HTML** & **Bootstrap**: Structure, responsive design and styling.
+  - **React** & **React Bootstrap**: For building interactive & responsive UI components.
+  - **HTML**: Structure, responsive design and styling.
   - **Sass**: For more manageable and modular CSS.
-  - **REST API**: Created through POSTgresql, Express and Node.
+
+  **REST API**: Created through POSTgresql, Express and Node.
   - **Express**: Used to manage CRUD functions.
-- **Other Tools**:
+  **Other Tools**:
   - **Figma**: For wireframe and prototype design.
   - **Git** & **GitHub**: Version control and project collaboration.
   -**Jest** & **React Testing Library (RTL)**: Testing the functionality of components.
@@ -46,12 +47,15 @@ List the key technologies and libraries used to build this project.
 5. **Browse**: Users can browse Pokemon on the Pokemon page.
 6. **Register**: Users can create a Pokedex profile through registration.
 7. **Login**: Users need to Login to view their Pokedex.
+8. **Pokedex**: Users have their own personal Pokedex that saves to their profile.
+9. **Levelling**: Pokemon level up once every 24 hours whilst in the Pokedex.
+10. **Evolve**: Optional - Users can evolve their Pokemon once they reach a certain level.
 
 ## Future Work
 - **Dark Mode**: Option for users to switch to a dark-themed interface.
-- **Enhanced Pokedex**: Each Pokemon will have a more detailed profile.
 - **Favourites**: Users can put their Pokemon in order of best to worst.
----
+- **Feed**: Users can feed their Pokemon.
+- **Random stone drop**: Users have a change of collecting a stone to evolve their Pokemon with every login.
 
 ## Installation
 Steps to set up the project on your local machine:
