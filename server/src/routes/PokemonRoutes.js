@@ -1,15 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/index');
-//const authenticateToken = require('../middleware/authMiddleware');
+
 
 // get all Pokemon
 router.get('/', async (req, res) => {
     try {
-      const results = await db.query("select * from pokemon")
-      console.log(results)
+      const results = await db.query("select * from pokemon");
+      if (results.rows.length === 0) {
+        return res.status(404).json({ error: 'Pokemon list not found' });
+    }
       res.status(200).json({
-        status: "success",
         results: results.rows.length,
         data: {
           pokemon: results.rows
@@ -17,6 +18,7 @@ router.get('/', async (req, res) => {
       })
     } catch (err) {
   console.log(err)
+  res.status(500).json({ error: 'Internal Server Error' });
     }
   });
   
@@ -24,15 +26,17 @@ router.get('/', async (req, res) => {
   router.get('/:id', async (req, res) => {
     try {
       const results = await db.query("select * from pokemon where pokemon_num = $1", [req.params.id])
-      console.log(results)
+      if (results.rows.length === 0) {
+        return res.status(404).json({ message: 'Pokémon not found in Pokedex for this user' });
+      }
       res.status(200).json({
-        status: "success",
         data: {
           pokemon: results.rows[0]
         },
       })
     }catch (err) {
   console.log(err)
+  res.status(500).json({ error: 'Internal Server Error' });
     }
   
   });

@@ -1,17 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import PokemonFinder from '../../api/PokemonFinder';
 import { PokemonContext } from '../../context/PokemonContext';
 import './Pokemon.scss';
 import { useNavigate } from 'react-router-dom';
 import Buttons from './PokeButtons';
+import PokedexFinder from '../../api/PokedexFinder';
+import {Container, Row, Col, Table, Card } from 'react-bootstrap';
+
 
 const Pokemon = () => {
-  const { pokemons, setPokemons } = useContext(PokemonContext);
-  const [filteredPokemons, setFilteredPokemons] = useState([]); 
+  const { pokemons, setPokemons} = useContext(PokemonContext);
+  const [filteredPokemons, setFilteredPokemons] = useState([]);
   const navigate = useNavigate();
 
+  
   useEffect(() => {
     (async () => {
       try {
@@ -32,59 +35,66 @@ const Pokemon = () => {
     setFilteredPokemons(newItem); 
   };
 
-  const selectPokemon = (id) => {
-    navigate(`/details/${id}`);
+
+  const addPokemonToPokedex = async (pokemonId) => {
+    try {
+      const selectedPokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
+      console.log("Selected Pokémon:", selectedPokemon);
+      const { pokemon_num, name, type, health, attacks, evolves_into, images } = selectedPokemon;
+      await PokedexFinder.post('/add', {
+        pokemon_num,
+        user_id: 2, 
+        name,
+        type,
+        health,
+        attacks,
+        evolves_into,
+        images,
+      });
+      navigate(`/pokedex`);
+    } catch (error) {
+      console.error("Error adding Pokémon to Pokedex:", error);
+      alert("There was an error adding the Pokémon to your Pokédex.");
+    }
   };
-
-
+  
   
 
   return (
     <div>
-      <Header />
-      <div className="search-bar-container">
         <SearchBar/>
-      
-      </div>
+        <Container fluid className='pokemon-container'>
+      <p><em>Add Pokemon to your Pokedex to truely discover their power.</em></p>
       <Buttons
         filterItem={filterItem}
         setPokemons={setFilteredPokemons} 
         pokeType={pokeType}
+        pokemons={pokemons}
+        className="pokemon-buttons"
       />
-      <div className="list-group container">
-        <table className="table table-hover table-light mt-3 pl-1">
-          <thead>
-            <tr className="bg-primary">
-              <th scope="col">PokeDex No.</th>
-              <th scope="col">Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Profile</th>
-            </tr>
-          </thead>
-          <tbody>
+      <Row className="pokemon-row">
             {filteredPokemons &&
               filteredPokemons
                 .sort(({ id: previousID }, { id: currentID }) => previousID - currentID)
                 .map((pokemon) => (
-                  <tr key={pokemon.id}>
-                    <td>{pokemon.pokemon_num}</td>
-                    <td className="pokedex-images">
-                      <img src={pokemon.images} alt="pokemon" />
-                    </td>
-                    <td>{pokemon.name}</td>
-                    <td>
+                  <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.id}>
+                    <div className='pokemon-image-wrapper'> 
+                      <Card.Img src={pokemon.images} alt={pokemon.name}/></div>
+                    <Card.Body> 
+                      <Card.Title><em>#{pokemon.pokemon_num}</em></Card.Title>
+                      <Card.Text>
+                      <h4>{pokemon.name}</h4>
                       <button
-                        onClick={() => selectPokemon(pokemon.id)}
-                        className="btn btn-warning btn-lg"
-                      >
-                        Profile
+                        onClick={() => addPokemonToPokedex(pokemon.id)}
+                        className="btn btn-warning">
+                        Add to PokeDex
                       </button>
-                    </td>
-                  </tr>
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
                 ))}
-          </tbody>
-        </table>
-      </div>
+      </Row>
+      </Container>
     </div>
   );
 };

@@ -1,42 +1,62 @@
 import { useEffect, useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { fetchProtectedInfo, onLogout } from '../../api/auth';
 import { AuthContext } from '../../context/authContext';
 import SearchBar from '../SearchBar/SearchBar';
-import Header from '../Header/Header';
-import DashboardFinder from '../../api/DashboardFinder';
+import PokedexFinder from '../../api/PokedexFinder';
+import Footer from '../Footer/Footer'
 import './Pokedex.scss';
+import {Container, Card, Row} from 'react-bootstrap'
 
 const Pokedex = () => {
   const [loading, setLoading] = useState(true);
   const [protectedData, setProtectedData] = useState(null);
-  const [dashboardData, setDashboardData] = useState([]); 
-
+  const [pokedexData, setPokedexData] = useState([]); 
   const { isAuth, unauthenticateUser } = useContext(AuthContext);
+const navigate = useNavigate();
+
+  const calculateLevel = (dateCaught) => {
+    const dateCaughtTime = new Date(dateCaught).getTime(); 
+    const currentTime = Date.now(); 
+    const timeElapsed = currentTime - dateCaughtTime; 
+    const daysElapsed = Math.floor(timeElapsed / (1000 * 60 * 60 * 24)); 
+    return 1 + daysElapsed; 
+  };
 
   useEffect(() => {
-    (async () => {
+    const userId = 2; 
+
+    const fetchPokedex = async () => {
       try {
-        const response = await DashboardFinder.get("/");
-        console.log(response.data.data.pokemon);
-        setDashboardData(response.data.data.pokemon); 
+        const response = await PokedexFinder.get(`/${userId}`);
+        const data = response.data;
+        console.log(data)
+        const updatedPokedex = data.map(pokemon => ({
+          ...pokemon,
+          level: calculateLevel(pokemon.date_caught),
+        }));
+        setPokedexData(updatedPokedex);
+        setLoading(false);
       } catch (err) {
-        console.log(err);
+        console.error('Error fetching Pokedex:', err);
+        setLoading(false);
       }
-    })();
+    };
+
+    fetchPokedex();
   }, []);
 
-  const deletePokemonFromDashboard = async (pokemon_num) => {
+  const deletePokemonFromPokedex = async (pokemon_num) => {
     try {
-      await DashboardFinder.delete(`/${pokemon_num}`);
-      setDashboardData(dashboardData.filter(pokemon => pokemon.pokemon_num !== pokemon_num));
+      const userId = 2; 
+      await PokedexFinder.delete(`/${userId}/${pokemon_num}`);
+      setPokedexData(pokedexData.filter(pokemon => pokemon.pokemon_num !== pokemon_num));
     } catch (err) {
-      console.error("Error deleting Pokémon:", err);
+      console.error('Error deleting Pokémon:', err);
+      alert('Failed to delete Pokémon.');
     }
   };
 
-
-
-  
   const logout = async () => {
     try {
       await onLogout();
@@ -65,72 +85,39 @@ const Pokedex = () => {
     }
   }, [isAuth]);
 
-  return loading ? (
-    <div>
-      <Header />
-      <h1>Loading...</h1>
-    </div>
-  ) : (
-    <div>
-      <Header />
-      <div className="search-bar-container">
-        <SearchBar/>
-       
-      </div>
-      <h1>Pokédex</h1>
-      <div className="list-group container">
-        <table className="table table-hover table-light mt-3 pl-1">
-          <thead>
-            <tr className="bg-primary">
-              <th scope="col">PokeDex No.</th>
-              <th scope="col">Image</th>
-              <th scope="col">Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">Health</th>
-              <th scope="col">Attacks</th>
-              <th scope="col">Evolves into:</th>
-              <th scope="col">Rating</th>
-              <th scope="col">Profile</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dashboardData && dashboardData.length > 0 ? (
-              dashboardData
-                .sort(({ id: previousID }, { id: currentID }) => previousID - currentID)
-                .map((poke) => {  
-                  console.log(poke)
-                  return (                
-                  <tr key={poke.id}>
-                    <td>{poke.pokemon_num}</td>
-                    <td className='dashboard-images'><img src={poke.images} alt='pokemon' /></td>
-                    <td>{poke.name}</td>
-                    <td>{poke.type}</td>
-                    <td>{poke.health}</td>
-                    <td>{poke.attacks}</td>
-                    <td>{poke.evolves_into}</td>
-                    <td>rating</td>
-                    <td><button className='btn btn-danger'>Profile</button></td>
-                    <td>        <button
-                  className="btn btn-warning"
-                  onClick={() => deletePokemonFromDashboard(poke.pokemon_num)} // Trigger the delete function
-                >
-                  Delete
-                </button></td>
-                  </tr>
-                  )
-})
-            ) : (
-              <tr>
-                <td colSpan="10">No data available.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-      <h2>{protectedData}</h2>
-    </div>
-  );
-};
 
+  const selectPokemon = (pokemon_num) => {
+    navigate(`/details/${pokemon_num}`);
+  };
+
+  return (
+    <div className='pokedex-page'>
+        <SearchBar/>
+      <h2>Pokédex</h2>
+      <p>Hey! Welcome to your Pokedex, I'm a tool you can use to learn more about Pokemon.<br/>
+        You can only have one unique Pokemon in your Pokedex at once, so choose wisely! <br/>
+        Also, your Pokemon will level up after 24 hours, every ten levels you will be able to evolve your Pokemon!
+      </p>
+    <Container fluid className='pokedex-container'>  
+    <Row className="pokedex-row">    
+ {pokedexData.map((pokemon) => (
+    <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.pokemon_num}>
+      <Card.Img src={pokemon.images} alt={pokemon.name} className="pokedex-image" />
+      <Card.Body className="pokemon-info">
+      <p>No. {pokemon.pokemon_num}</p>
+        <h3>{pokemon.name}</h3>
+        <p>Type: {pokemon.type}</p>
+        <p>Level: {pokemon.level}</p>
+        <button onClick={() => selectPokemon(pokemon.pokemon_num)} 
+        className="profile-button">View Profile</button>
+        <button  onClick={() => deletePokemonFromPokedex(pokemon.pokemon_num)} 
+        className="delete-button">Delete</button>
+       </Card.Body>
+      </Card>
+  ))}
+  </Row>
+</Container>
+<Footer/>
+</div>
+  )}
 export default Pokedex;

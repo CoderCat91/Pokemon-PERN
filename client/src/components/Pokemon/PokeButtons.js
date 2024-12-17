@@ -1,11 +1,12 @@
 import React from "react";
 import './PokeButtons.scss'
+import { Container, Button } from "react-bootstrap";
 
-const Buttons = ({ filterItem, setPokemons, pokeType }) => {
-  function refreshPage() {
-    setPokemons([]); 
+const Buttons = ({ filterItem, setPokemons, pokeType, pokemons }) => {
+  function chooseAll() {
+   setPokemons(pokemons); 
   }
-
+  
   const getButtonClass = (type) => {
     switch (type.toLowerCase()) {
       case 'fire':
@@ -39,24 +40,27 @@ const Buttons = ({ filterItem, setPokemons, pokeType }) => {
     }
   };
 
+ 
+
+
   return (
-    <div className="d-flex justify-content-center">
+    <Container fluid className="poke-buttons">
       {pokeType.map((val, id) => (
-        <button
-          className={`btn text-white p-2 mb-2 mx-1 fw-bold ${getButtonClass(val)}`}
+        <Button
+          className={` ${getButtonClass(val)}`}
           onClick={() => filterItem(val)}
           key={id}
         >
           {val}
-        </button>
+        </Button>
       ))}
       <button
         className="btn-dark text-white p-1 px-3 mx-5 mb-2 fw-bold"
-        onClick={refreshPage}
+        onClick={chooseAll}
       >
         All
       </button>
-    </div>
+    </Container>
   );
 };
 

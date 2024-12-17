@@ -1,8 +1,113 @@
 @import '../../common/style.scss';
 
-
-.dashboard-images img {
-    height: 250px;
-    width: 250px;
-    background-size: cover;
+.pokedex-page {
+  min-height: 100vh;
+  h2 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
 }
+
+
+.pokedex-container {
+width: 100%;
+}
+
+.pokedex-row {
+  margin: 0 auto;
+}
+
+.pokemon-card {
+  max-width: 200px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  margin: 10px;
+}
+
+.pokemon-card:hover {
+  transform: scale(1.05);
+}
+
+.pokedex-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.pokemon-info {
+  padding: 10px;
+}
+
+.pokemon-info h3 {
+  margin: 5px 0;
+  color: #333333;
+}
+
+.pokemon-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666666;
+}
+
+.profile-button, .delete-button {
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.profile-button {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+.delete-button {
+  background: #f44336;
+  color: #ffffff;
+}
+
+.profile-button:hover {
+  background: #45a049;
+}
+
+.delete-button:hover {
+  background: #d32f2f;
+}
+
+
+
+.pokemon-card.grass { border: 2px solid #36a300;
+  box-shadow: 0 8px 20px #36a300; }
+.pokemon-card.water { border: 2px solid #004cfd;
+  box-shadow: 0 8px 20px #004cfd; }
+.pokemon-card.fire { border: 2px solid #cf0a03;
+  box-shadow: 0 8px 20px #cf0a03;  }
+.pokemon-card.electric { border: 2px solid #fbd950;
+  box-shadow: 0 8px 20px #fbd950;  }
+.pokemon-card.normal { border: 2px solid #74677a;
+  box-shadow: 0 8px 20px #74677a; }
+.pokemon-card.ground { border: 2px solid #6b543e; 
+  box-shadow: 0 8px 20px #6b543e; }
+.pokemon-card.bug { border: 2px solid #65f50c;
+  box-shadow: 0 8px 20px #65f50c; }
+.pokemon-card.poison { border: 2px solid #c566fb;
+  box-shadow: 0 8px 20px #c566fb; }
+.pokemon-card.psychic { border: 2px solid #7002bf;
+  box-shadow: 0 8px 20px #7002bf; }
+.pokemon-card.fighting { border: 2px solid #fa9e00; 
+  box-shadow: 0 8px 20px #fa9e00; }
+.pokemon-card.rock { border: 2px solid #565553; 
+  box-shadow: 0 8px 20px #565553; }
+.pokemon-card.ice { border: 2px solid #0cbbf5; 
+  box-shadow: 0 8px 20px #0cbbf5; }
+.pokemon-card.dragon { border: 2px solid #724a8f; 
+  box-shadow: 0 8px 20px #724a8f}

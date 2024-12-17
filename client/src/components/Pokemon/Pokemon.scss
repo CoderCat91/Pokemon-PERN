@@ -1,25 +1,24 @@
 @import '../../common/style.scss';
 
-.pokedex-images img {
-    height: 250px;
-    width: 250px;
-    background-size: cover;
+
+.pokemon-container {
+    width: 100%;
+}
+
+.card {
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+}
+
+.pokemon-image-wrapper {
+    height: 177px;
+    width: 177px;
+    background-color: transparent;
 }
 
 .btn {
     font-weight: bold;
 }
 
-table {
-    width: 100%;
-    justify-content: center;
-}
-
-.table th, .table td {
-    text-align: center; 
-  }
-td,th {
-    font-weight: bolder;
-    font-size: larger;
-}
 

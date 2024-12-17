@@ -1,7 +1,6 @@
 import { useState, useContext } from 'react'
 import { onLogin } from '../../api/auth'
-import { AuthContext } from '../../context/authContext' // Import AuthContext
-import Header from '../Header/Header';
+import { AuthContext } from '../../context/authContext'
 import charizard from '../../images/ezgif.com-webp-to-png (6).png'
 import './Login.scss';
 
@@ -12,7 +11,7 @@ const Login = () => {
   })
   const [error, setError] = useState(false)
 
-  const { authenticateUser } = useContext(AuthContext) // Access authenticateUser from context
+  const { authenticateUser } = useContext(AuthContext) 
 
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value })
@@ -34,7 +33,6 @@ const Login = () => {
 
   return (
     <div>
-      <Header />
       <div className='main-wrapper'>
         <div className='login-wrapper'>
           <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>

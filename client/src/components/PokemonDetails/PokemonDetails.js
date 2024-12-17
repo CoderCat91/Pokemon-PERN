@@ -1,35 +1,41 @@
 import React, { useContext, useEffect } from 'react';
 import { PokemonContext } from '../../context/PokemonContext';
 import { useParams, useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
 import SearchBar from '../SearchBar/SearchBar';
 import './PokemonDetails.scss';
-import PokedexFinder from '../../api/PokedexFinder';
 
 
 const PokemonDetails = () => {
-  const { id } = useParams();  
+  const { pokemon_num } = useParams();  
   const { pokemons, selectedPokemon, setSelectedPokemon } = useContext(PokemonContext); 
   const navigate = useNavigate();
 
   useEffect(() => {
-   
     const fetchData = async () => {
       try {
-        const pokemon = pokemons.find((pokemon) => pokemon.pokemon_num === parseInt(id));
-        setSelectedPokemon(pokemon); 
+        if (pokemons.length === 0) {
+          console.log('Pokémons not loaded yet');
+          return;
+        }
+
+        console.log('Fetching Pokémon details for ID:', pokemon_num);
+        const pokemon = pokemons.find((pokemon) => pokemon.pokemon_num === parseInt(pokemon_num));
+        console.log('Found Pokémon:', pokemon);
+        setSelectedPokemon(pokemon);
       } catch (err) {
-        console.log(err);
+        console.error('Error fetching Pokémon details:', err);
       }
     };
 
-    fetchData(); 
-  }, [id, pokemons, setSelectedPokemon]); 
+    fetchData();
+  }, [pokemon_num, pokemons, setSelectedPokemon]);
+
+  
 
 
   const goToNextPokemon = () => {
     const currentIndex = pokemons.findIndex((pokemon) => pokemon.pokemon_num === selectedPokemon.pokemon_num);
-    const nextPokemon = pokemons[(currentIndex + 1) % pokemons.length]; // Get the next Pokémon (circular)
+    const nextPokemon = pokemons[(currentIndex + 1) % pokemons.length]; 
 
     setSelectedPokemon(nextPokemon);
 
@@ -49,41 +55,12 @@ const PokemonDetails = () => {
   };
 
 
-  const addPokemonToPokedex = async () => {
-    try {
-      console.log("Selected Pokémon data:", selectedPokemon);
-  
-      // Ensure you're only sending the relevant data (excluding circular references)
-      const { pokemon_num, name, type, health, attacks, evolves_into, images } = selectedPokemon;
-      console.log("Sending the following data to the server:", { pokemon_num, name, type, health, attacks, evolves_into, images });
-  
-      // Send to backend
-      await PokedexFinder.post('/add', {
-        user_id: 2, 
-        pokemon_num, 
-        name,
-        type,
-        health,
-        attacks,
-        evolves_into,
-        images
-      });
-  
-      navigate(`/pokedex`);
-    } catch (error) {
-      console.error("Error adding Pokémon to Pokedex:", error);
-      alert("There was an error adding the Pokemon to your Pokedex.");
-    }
-  };
+ 
   
 
   return (
     <div>
-      <Header />
-      <div className="search-bar-container">
         <SearchBar/>
-        
-      </div>
 
       {selectedPokemon && (
         <div className="detail-wrapper">
@@ -110,9 +87,6 @@ const PokemonDetails = () => {
                 </button>
                 <button onClick={goToNextPokemon} className="btn btn-dark">
                   Next
-                </button>
-                <button onClick={addPokemonToPokedex} className="btn btn-success">
-                  Add to Pokédex
                 </button>
               </div>
             </div>

@@ -7,7 +7,10 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Pokemon from './components/Pokemon/Pokemon';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails'
-import { PokemonContextProvider} from './context/PokemonContext'
+import { PokemonContextProvider} from './context/PokemonContext';
+import Header from './components/Header/Header'
+
+
 
 const PrivateRoutes = () => {
   const { isAuth } = useContext(AuthContext); 
@@ -18,7 +21,7 @@ const PrivateRoutes = () => {
 const RestrictedRoutes = () => {
   const { isAuth } = useContext(AuthContext);
 
-  return !isAuth ? <Outlet /> : <Navigate to='/home' />;
+  return !isAuth ? <Outlet /> : <Navigate to='/' />;
 };
 
 const App = () => {
@@ -27,10 +30,11 @@ const App = () => {
       <AuthContextProvider>
     <PokemonContextProvider>
     <BrowserRouter>
+    <Header/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/pokemon' element={<Pokemon />} />
-        <Route path='/details/:id' element={<PokemonDetails/>} />
+        <Route path="/details/:pokemon_num" element={<PokemonDetails />} />
         <Route element={<PrivateRoutes />}>
           <Route path='/pokedex' element={<Pokedex />} />
         </Route>
