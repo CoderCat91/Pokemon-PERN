@@ -11,17 +11,17 @@ router.post('/add', async (req, res) => {
     }
     try {
         const pokemon = await db.query(
-            `SELECT name, type, health, attacks, evolves_into, images FROM pokemon WHERE pokemon_num = $1`,
+            `SELECT name, type, health, attacks, evolves_into, images, subtype, height, weight, description, second_attack, weakness, strength FROM pokemon WHERE pokemon_num = $1`,
             [pokemon_num]
         );
         if (pokemon.rows.length === 0) {
             return res.status(404).json({ error: 'Pokemon not found' });
         }
-        const { name, type, health, attacks, evolves_into, images } = pokemon.rows[0];
+        const { name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack} = pokemon.rows[0];
         const result = await db.query(
-            `INSERT INTO pokedex (user_id, pokemon_num, name, type, health, attacks, evolves_into, images)
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-            [user_id, pokemon_num, name, type, health, attacks, evolves_into, images]
+            `INSERT INTO pokedex (user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack)
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *`,
+            [user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack]
         );
         res.status(201).json({ message: "Pokemon added to Pokedex", data: result.rows[0] });
     } catch (error) {
@@ -37,7 +37,7 @@ router.post('/add', async (req, res) => {
   
     try {
         const result = await db.query(
-            `SELECT id, pokemon_num, date_caught, name, type, health, attacks, evolves_into, images
+            `SELECT id, pokemon_num, date_caught, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack
              FROM pokedex WHERE user_id = $1`,
             [user_id]
         );
@@ -62,11 +62,10 @@ router.delete('/:user_id/:pokemon_num', async (req, res) => {
         [user_id, pokemon_num]
       );
       if (result.rows.length === 0) {
-        return res.status(404).json({ message: 'Pokémon not found in Pokedex for this user' });
+        return res.status(404).json({ message: 'Pokemon not found in Pokedex for this user' });
       }
       res.status(200).json({ message: 'Pokemon successfully deleted from Pokedex' });
     } catch (error) {
-      console.log('Error deleting Pokemon from Pokedex:', error);
       res.status(500).json({ message: 'Failed to delete Pokemon from Pokedex' });
     }
   });

@@ -6,7 +6,7 @@ import './Pokemon.scss';
 import { useNavigate } from 'react-router-dom';
 import Buttons from './PokeButtons';
 import PokedexFinder from '../../api/PokedexFinder';
-import {Container, Row, Col, Table, Card } from 'react-bootstrap';
+import {Container, Row, Card } from 'react-bootstrap';
 
 
 const Pokemon = () => {
@@ -38,18 +38,26 @@ const Pokemon = () => {
 
   const addPokemonToPokedex = async (pokemonId) => {
     try {
+      const userId = localStorage.getItem('userId');
       const selectedPokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
       console.log("Selected Pokémon:", selectedPokemon);
-      const { pokemon_num, name, type, health, attacks, evolves_into, images } = selectedPokemon;
+      const { pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack } = selectedPokemon;
       await PokedexFinder.post('/add', {
         pokemon_num,
-        user_id: 2, 
+        user_id: userId, 
         name,
         type,
         health,
         attacks,
         evolves_into,
         images,
+        subtype, 
+        height, 
+        weight, 
+        description, 
+        weakness, 
+        strength, 
+        second_attack
       });
       navigate(`/pokedex`);
     } catch (error) {
@@ -83,7 +91,7 @@ const Pokemon = () => {
                     <Card.Body> 
                       <Card.Title><em>#{pokemon.pokemon_num}</em></Card.Title>
                       <Card.Text>
-                      <h4>{pokemon.name}</h4>
+                      <p>{pokemon.name}</p>
                       <button
                         onClick={() => addPokemonToPokedex(pokemon.id)}
                         className="btn btn-warning">

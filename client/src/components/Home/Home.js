@@ -1,6 +1,5 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
-import SearchBar from "../SearchBar/SearchBar"
 import './Home.scss';
 import venasaur from '../../images/ezgif.com-webp-to-png (3).png';
 import blastoise from '../../images/ezgif.com-webp-to-png (9).png';
@@ -9,8 +8,6 @@ import charizard from '../../images/ezgif.com-webp-to-png (6).png'
 const Home = () => {
     return (
     <div>
-        <SearchBar/>
-
         <div className="home-wrapper">
         <h2>Pokémon - Did you catch 'em all?</h2>
         <div className="home-inner">

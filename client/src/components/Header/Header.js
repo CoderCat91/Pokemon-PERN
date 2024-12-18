@@ -4,6 +4,7 @@ import './Header.scss'
 import logo from '../../images/Pokemon_logo_PNG2.png'
 import { AuthContext } from '../../context/authContext'
 import { onLogout } from '../../api/auth'
+import {Navbar, Container, Nav} from 'react-bootstrap'
 
 const Header = () => {
   const { isAuth, unauthenticateUser } = useContext(AuthContext) 
@@ -20,24 +21,21 @@ const Header = () => {
   }
 
   return (
-    <div className='header-wrapper'>
-      <ul>
-        <div className='home-div'>
-          <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
+    <Navbar expand="lg" className="bg-body-tertiary">
+    <Container>
+    <Navbar.Brand href='/' className='header-logo'>      
+            <img src={logo} alt='pokemon' />
+        </Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+        <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>Home</span>
           </NavLink>
           <NavLink to='/pokemon' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>Pokémon</span>
           </NavLink>
-        </div>
-
-        <div className='header-logo'>
-          <NavLink to='/'>
-            <img src={logo} alt='pokemon' />
-          </NavLink>
-        </div>
-
-        {isAuth ? (
+          {isAuth ? (
           <div className='auth-div'>
             <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
               <span>Pokédex</span>
@@ -57,8 +55,10 @@ const Header = () => {
             </NavLink>
           </div>
         )}
-      </ul>
-    </div>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
   )
 }
 

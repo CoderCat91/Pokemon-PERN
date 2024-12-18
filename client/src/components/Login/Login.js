@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react'
 import { onLogin } from '../../api/auth'
 import { AuthContext } from '../../context/authContext'
-import charizard from '../../images/ezgif.com-webp-to-png (6).png'
+import charizard from '../../images/ezgif.com-webp-to-png (6).png';
 import './Login.scss';
 
 const Login = () => {
@@ -9,8 +9,7 @@ const Login = () => {
     email: '',
     password: '',
   })
-  const [error, setError] = useState(false)
-
+  const [error, setError] = useState(false); 
   const { authenticateUser } = useContext(AuthContext) 
 
   const onChange = (e) => {
@@ -21,15 +20,20 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      await onLogin(values)
-      authenticateUser() 
+      const { userId } = await onLogin(values); 
+      console.log(values);
+      
+      authenticateUser(); 
+      localStorage.setItem('isAuth', 'true'); 
+      localStorage.setItem('userId', userId);
+      console.log(localStorage); 
 
-      localStorage.setItem('isAuth', 'true') 
     } catch (error) {
-      console.log(error.response.data.errors[0].msg)
+      console.log(error.response.data.errors[0].msg);
       setError(error.response.data.errors[0].msg) 
     }
   }
+
 
   return (
     <div>
@@ -86,4 +90,3 @@ const Login = () => {
 }
 
 export default Login
-

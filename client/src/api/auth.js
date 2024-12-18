@@ -9,8 +9,10 @@ export async function onRegistration(registrationData) {
 }
 
 export async function onLogin(loginData) {
-  return await axios.post('http://localhost:3000/api/login', loginData)
+  const response = await axios.post('http://localhost:3000/api/login', loginData);
+  return response.data; 
 }
+
 
 export async function onLogout() {
   return await axios.get('http://localhost:3000/api/logout')

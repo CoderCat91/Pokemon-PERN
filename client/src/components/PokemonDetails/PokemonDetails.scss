@@ -8,15 +8,41 @@
 }
 
 .detail-card {
-    width: 40%;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: wheat;
+    background-color: rgb(227, 210, 179);
     margin: 0 auto;
     border-radius: 20px;
 }
 
+.detail-card.grass { border: 2px solid #36a300;
+    box-shadow: 0 8px 20px #36a300; }
+  .detail-card.water { border: 2px solid #004cfd;
+    box-shadow: 0 8px 20px #004cfd; }
+  .detail-card.fire { border: 2px solid #cf0a03;
+    box-shadow: 0 8px 20px #cf0a03;  }
+  .detail-card.electric { border: 2px solid #fbd950;
+    box-shadow: 0 8px 20px #fbd950;  }
+  .detail-card.normal { border: 2px solid #74677a;
+    box-shadow: 0 8px 20px #74677a; }
+  .detail-card.ground { border: 2px solid #6b543e; 
+    box-shadow: 0 8px 20px #6b543e; }
+  .detail-card.bug { border: 2px solid #65f50c;
+    box-shadow: 0 8px 20px #65f50c; }
+  .detail-card.poison { border: 2px solid #c566fb;
+    box-shadow: 0 8px 20px #c566fb; }
+  .detail-card.psychic { border: 2px solid #7002bf;
+    box-shadow: 0 8px 20px #7002bf; }
+  .detail-card.fighting { border: 2px solid #fa9e00; 
+    box-shadow: 0 8px 20px #fa9e00; }
+  .detail-card.rock { border: 2px solid #565553; 
+    box-shadow: 0 8px 20px #565553; }
+  .detail-card.ice { border: 2px solid #0cbbf5; 
+    box-shadow: 0 8px 20px #0cbbf5; }
+  .detail-card.dragon { border: 2px solid #724a8f; 
+    box-shadow: 0 8px 20px #724a8f}
 
 .card-inner {
     text-align: center;

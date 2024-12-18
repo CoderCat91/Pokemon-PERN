@@ -6,8 +6,8 @@ const { userAuth } = require('../middleware/middleware');
 
 const router = Router();
 
-router.get('/get-users', userAuth, getUsers);  // Make sure 'getUsers' is correctly imported
-router.get('/protected', userAuth, protected);  // Same for 'protected'
+router.get('/get-users', userAuth, getUsers);  
+router.get('/protected', userAuth, protected); 
 router.post('/register', registerValidation, validationMiddleware, register);
 router.post('/login', loginValidation, validationMiddleware, login);
 router.get('/logout', logout);

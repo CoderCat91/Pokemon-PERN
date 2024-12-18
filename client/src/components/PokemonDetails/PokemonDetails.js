@@ -7,28 +7,36 @@ import './PokemonDetails.scss';
 
 const PokemonDetails = () => {
   const { pokemon_num } = useParams();  
-  const { pokemons, selectedPokemon, setSelectedPokemon } = useContext(PokemonContext); 
+  const { pokemons, selectedPokemon, setSelectedPokemon, loading } = useContext(PokemonContext); 
+  
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (pokemons.length === 0) {
-          console.log('Pokémons not loaded yet');
-          return;
-        }
+  
 
-        console.log('Fetching Pokémon details for ID:', pokemon_num);
-        const pokemon = pokemons.find((pokemon) => pokemon.pokemon_num === parseInt(pokemon_num));
-        console.log('Found Pokémon:', pokemon);
-        setSelectedPokemon(pokemon);
-      } catch (err) {
-        console.error('Error fetching Pokémon details:', err);
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      if (pokemons.length === 0) {
+        console.log('Pokémons not loaded yet');
+        return;
       }
-    };
 
-    fetchData();
-  }, [pokemon_num, pokemons, setSelectedPokemon]);
+      console.log('Fetching Pokémon details for pokemon_num:', pokemon_num);
+      const pokemon = pokemons.find((pokemon) => pokemon.pokemon_num === parseInt(pokemon_num));
+      console.log('Found Pokémon:', pokemon);
+      setSelectedPokemon(pokemon);
+    } catch (err) {
+      console.error('Error fetching Pokémon details:', err);
+    }
+  };
+
+  fetchData();
+}, [pokemon_num, pokemons, setSelectedPokemon]);
+
+if (loading) {
+  return <div>Loading Pokémon data...</div>;
+}
+
 
   
 
@@ -64,21 +72,29 @@ const PokemonDetails = () => {
 
       {selectedPokemon && (
         <div className="detail-wrapper">
-          <div className="detail-card">
+          <div className={`detail-card ${selectedPokemon.type.toLowerCase()}`}>
             <div className="card-inner">
               <div className="card-top">
                 <span>#{selectedPokemon.pokemon_num}</span><br />
                 <h2>{selectedPokemon.name}</h2>
                 <div className="detail-image">
-                  <img src={selectedPokemon.images} alt="pokemon" />
+                  <img src={selectedPokemon.images} alt={selectedPokemon.name} />
                 </div>
+                <p><span>Description:</span> {selectedPokemon.description}</p>
               </div>
 
               <div className="card-middle">
-                <p><span>Type:</span> {selectedPokemon.type}</p>
+              
                 <p><span>Health:</span> {selectedPokemon.health} HP</p>
-                <p><span>Attacks:</span> {selectedPokemon.attacks}</p>
+                <p><span>Attack:</span> {selectedPokemon.attacks}</p>
+                <p><span>Type:</span> {selectedPokemon.type}</p>
+                <p><span>Subtype:</span> {selectedPokemon.subtype}</p>
+                <p><span>Weak against:</span> {selectedPokemon.weakness}</p>
+                <p><span>Strong against:</span> {selectedPokemon.strength}</p>
+                <p><span>Other attack:</span> {selectedPokemon.second_attack}</p>
                 <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
+                
+
               </div>
 
               <div className="card-bottom">

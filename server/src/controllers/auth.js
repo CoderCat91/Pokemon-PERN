@@ -47,7 +47,7 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     let user = req.user;
-
+    console.log('User logging in:', user);
     let payload = {
         id: user.id,
         email: user.email,
@@ -62,6 +62,7 @@ exports.login = async (req, res) => {
             .json({
                 success: true,
                 message: 'Logged in successfully',
+                userId: user.id,
             });
     } catch (error) {
         console.log(error.message);
