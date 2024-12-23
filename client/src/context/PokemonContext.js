@@ -12,7 +12,8 @@ useEffect(() => {
   const fetchPokemons = async () => {
     try {
       const response = await PokemonFinder.get("/"); 
-      setPokemons(response.data.data.pokemon); 
+      const sortedPokemons = response.data.data.pokemon.sort(({ id: previousID }, { id: currentID }) => previousID - currentID)
+      setPokemons(sortedPokemons); 
     } catch (error) {
       console.error("Error", error);
     } finally {

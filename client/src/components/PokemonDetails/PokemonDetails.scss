@@ -3,78 +3,389 @@
 .detail-wrapper {
     width: 100%;
     height:auto;
-    display: flex;
-    justify-content: center;
+    position: relative;
 }
 
 .detail-card {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: rgb(227, 210, 179);
-    margin: 0 auto;
-    border-radius: 20px;
+    width: 85%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    border-radius: 8px;
+    margin-bottom: 50px;
 }
 
-.detail-card.grass { border: 2px solid #36a300;
-    box-shadow: 0 8px 20px #36a300; }
-  .detail-card.water { border: 2px solid #004cfd;
-    box-shadow: 0 8px 20px #004cfd; }
-  .detail-card.fire { border: 2px solid #cf0a03;
-    box-shadow: 0 8px 20px #cf0a03;  }
-  .detail-card.electric { border: 2px solid #fbd950;
-    box-shadow: 0 8px 20px #fbd950;  }
-  .detail-card.normal { border: 2px solid #74677a;
-    box-shadow: 0 8px 20px #74677a; }
-  .detail-card.ground { border: 2px solid #6b543e; 
-    box-shadow: 0 8px 20px #6b543e; }
-  .detail-card.bug { border: 2px solid #65f50c;
-    box-shadow: 0 8px 20px #65f50c; }
-  .detail-card.poison { border: 2px solid #c566fb;
-    box-shadow: 0 8px 20px #c566fb; }
-  .detail-card.psychic { border: 2px solid #7002bf;
-    box-shadow: 0 8px 20px #7002bf; }
-  .detail-card.fighting { border: 2px solid #fa9e00; 
-    box-shadow: 0 8px 20px #fa9e00; }
-  .detail-card.rock { border: 2px solid #565553; 
-    box-shadow: 0 8px 20px #565553; }
-  .detail-card.ice { border: 2px solid #0cbbf5; 
-    box-shadow: 0 8px 20px #0cbbf5; }
-  .detail-card.dragon { border: 2px solid #724a8f; 
-    box-shadow: 0 8px 20px #724a8f}
+.detail-card.grass { 
+  border: 2px solid rgba(54, 163, 0, 0.5);
+  box-shadow: -12px -12px 2px 1px rgba(54, 163, 0, 0.2); 
+}
+  .detail-card.water { 
+    border: 2px solid rgba(0, 76, 253, 0.5);
+    box-shadow: -12px -12px 2px 1px rgba(0, 76, 253, 0.2) 
+  }
+  .detail-card.fire { 
+    border: 2px solid rgba(207, 10, 3, 0.5);
+    box-shadow: -12px -12px 2px 1px rgba(207, 10, 3, 0.2); 
+   }
+  .detail-card.electric { 
+    border: 2px solid rgba(251, 217, 80, 0.5);
+    box-shadow: -12px -12px 2px 1px rgba(251, 217, 80, 0.2);
+   }
+  .detail-card.normal { 
+    border: 2px solid rgba(116, 103, 122, 0.5);
+    box-shadow: -12px -12px 2px 1px  rgba(116, 103, 122, 0.2);
+  }
+  .detail-card.ground { 
+    border: 2px solid rgba(107, 84, 62, 0.5); 
+    box-shadow: -12px -12px 2px 1px  rgba(107, 84, 62, 0.2);
+   }
+  .detail-card.bug { 
+    border: 2px solid rgba(101, 245, 12, 0.5);
+    box-shadow: -12px -12px 2px 1px rgba(101, 245, 12, 0.2);
+  }
+  .detail-card.poison { 
+    border: 2px solid rgba(197, 102, 251, 0.5);
+    box-shadow: -12px -12px 2px 1px rgba(197, 102, 251, 0.2);
+  }
+  .detail-card.psychic { 
+    border: 2px solid rgba(112, 2, 191, 0.5);
+    box-shadow: -12px -12px 2px 1px rgba(112, 2, 191, 0.2);
+   }
+  .detail-card.fighting { 
+    border: 2px solid rgba(250, 158, 0, 0.5); 
+    box-shadow: -12px -12px 2px 1px rgba(250, 158, 0, 0.2);
+  }
+  .detail-card.rock { 
+    border: 2px solid rgba(86, 85, 83, 0.5); 
+    box-shadow: -12px -12px 2px 1px rgba(86, 85, 83, 0.2); 
+  }
+  .detail-card.ice { 
+    border: 2px solid rgba(12, 187, 245, 0.5); 
+    box-shadow: -12px -12px 2px 1px  rgba(12, 187, 245, 0.2);
+  }
+  .detail-card.dragon { 
+    border: 2px solid rgba(114, 74, 143, 0.5); 
+    box-shadow: -12px -12px 2px 1px  rgba(114, 74, 143, 0.2);
+  }
 
+    .col {
+      display: flex;
+    }
+.card {
+  align-self: center;
+}
 .card-inner {
-    text-align: center;
-    width: 80%;
+  text-align: center;
+    width: 100%;
     height: auto;
     border-radius: 20px;
     margin: 0 auto;
 }
 
-
-.card-middle p {
-    font-weight: 400;
+.card-left {
+width: 90%;
+background-color: transparent;
 }
-
-.card-bottom {
-    display: flex;
-    justify-content: center;
-}
-
-button {
-    margin-bottom: 10px;
-}
-
-.card-bottom button:nth-child(2) {
-    margin-left: 2px;
+.card-right {
+  background-color: #fff;
+  width: 90%;
   }
-.card-bottom button:last-child {
-    margin-left: 10px;
+  .card-middle {
+    width: 90%;
   }
+  .card-middle p {
+      font-weight: 400;
+  }
+  
+  .card-bottom {
+    width: 90%;
+      display: flex;
+      justify-content: center;
+  }
+  
+
+.card-left.grass, .card-right.grass, .card-middle.grass, .card-bottom.grass{
+  box-shadow: 12px 12px 2px 1px rgba(54, 163, 0, 0.2);
+  border: 2px solid rgba(54, 163, 0, 0.5);
+}
+.card-left.fire, .card-right.fire, .card-middle.fire, .card-bottom.fire {
+  box-shadow: 12px 12px 2px 1px rgba(207, 10, 3, 0.2);
+  border: 2px solid rgba(207, 10, 3, 0.5);
+}
+.card-left.water, .card-right.water, .card-middle.water, .card-bottom.water {
+  box-shadow: 12px 12px 2px 1px rgba(0, 76, 253, 0.2);
+  border: 2px solid rgba(0, 76, 253, 0.5);
+}
+.card-left.electric, .card-right.electric, .card-middle.electric, .card-bottom.electric {
+  box-shadow: 12px 12px 2px 1px rgba(251, 217, 80, 0.2);
+  border: 2px solid rgba(251, 217, 80, 0.5);
+}
+.card-left.normal, .card-right.normal, .card-middle.normal, .card-bottom.normal {
+  box-shadow: 12px 12px 2px 1px  rgba(116, 103, 122, 0.2);
+  border: 2px solid rgba(116, 103, 122, 0.5);
+}
+.card-left.ground, .card-right.ground, .card-middle.ground, .card-bottom.ground {
+  box-shadow: 12px 12px 2px 1px  rgba(107, 84, 62, 0.2);
+  border: 2px solid rgba(107, 84, 62, 0.5);
+}
+.card-left.bug, .card-right.bug, .card-middle.bug, .card-bottom.bug {
+  box-shadow: 12px 12px 2px 1px rgba(101, 245, 12, 0.2);
+  border: 2px solid rgba(101, 245, 12, 0.5);
+}
+.card-left.poison, .card-right.poison, .card-middle.poison, .card-bottom.poison {
+  box-shadow: 12px 12px 2px 1px rgba(197, 102, 251, 0.2);
+  border: 2px solid rgba(971, 102, 251, 0.5);
+}
+.card-left.psychic, .card-right.psychic, .card-middle.psychic, .card-bottom.psychic {
+  box-shadow: 12px 12px 2px 1px rgba(112, 2, 191, 0.2);
+  border: 2px solid rgba(112, 2, 191, 0.5);
+}
+.card-left.fighting, .card-right.fighting, .card-middle.fighting, .card-bottom.fighting {
+  box-shadow: 12px 12px 2px 1px rgba(250, 158, 0, 0.2);
+  border: 2px solid rgba(250, 158, 0, 0.5);
+
+}
+.card-left.rock, .card-right.rock, .card-middle.rock, .card-bottom.rock {
+  box-shadow: 12px 12px 2px 1px rgba(86, 85, 83, 0.2);
+  border: 2px solid rgba(86, 85, 83, 0.5);
+
+}
+.card-left.ice, .card-right.ice, .card-middle.ice, .card-bottom.ice {
+  box-shadow: 12px 12px 2px 1px  rgba(12, 187, 245, 0.2);
+  border: 2px solid rgba(12, 187, 245, 0.5);
+}
+.card-left.dragon, .card-right.dragon, .card-middle.dragon, .card-bottom.dragon {
+  box-shadow: 12px 12px 2px 1px  rgba(114, 74, 143, 0.2);
+  border: 2px solid rgba(114, 74, 143, 0.5);
+}
+
+
+.card-button-left {
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%); 
+  left: 0; 
+}
+.card-button-right {
+position: absolute;
+top: 50%; 
+transform: translateY(-50%); 
+right: 0; 
+}
+
+.button-left, .button-right {
+  height: 300px;
+  width: 80px;
+  margin: 10px;
+  font-weight: bold;
+  display: inline-block;
+  position: relative;
+  text-transform: uppercase;
+ border: 1px solid grey;
+}
+
+.button-left:before{
+  content: '';
+  border-radius: 50px 5px 5px 50px; 
+  position: absolute;
+  background-color: grey;
+  width: 0%;
+  top: 0;
+  left: 0;
+  height: 300px;
+  transition: 0.3s linear;
+  z-index: -1;
+  margin: 10px;
+}
+
+.button-right:before{
+  content: '';
+  border-radius: 5px 50px 50px 5px; 
+  position: absolute;
+  background-color: gray;
+  width: 0%;
+  top: 0;
+  right: 0;
+  height: 300px;
+  transition: 0.3s linear;
+  z-index: -1;
+  margin: 10px;
+}
+
+.button-left:hover:before, .button-right:hover:before {
+  width: 80px;
+}
+
+.button-left {
+  border-radius: 50px 5px 5px 50px;   
+}
+
+.button-right {
+  border-radius: 5px 50px 50px 5px; 
+}
+.button-left.grass {
+  box-shadow: 12px 12px 2px 1px  rgba(54, 163, 0, 0.2);
+}
+.button-left.fire {
+  box-shadow: 12px 12px 2px 1px  rgba(207, 10, 3, 0.2);
+}
+.button-left.water {
+  box-shadow: 12px 12px 2px 1px rgba(0, 76, 253, 0.2);
+}
+.button-left.electric {
+  box-shadow: 12px 12px 2px 1px rgba(251, 217, 80, 0.2);
+}
+.button-left.normal {
+  box-shadow: 12px 12px 2px 1px rgba(116, 103, 122, 0.2);
+}
+
+.button-left.ground {
+  box-shadow: 12px 12px 2px 1px rgba(107, 84, 62, 0.2);
+}
+
+.button-left.bug {
+  box-shadow: 12px 12px 2px 1px rgba(101, 245, 12, 0.2);
+}
+.button-left.poison {
+  box-shadow: 12px 12px 2px 1px rgba(197, 102, 251, 0.2);
+}
+.button-left.psychic {
+  box-shadow: 12px 12px 2px 1px rgba(112, 2, 191, 0.2);
+}
+
+.button-left.fighting {
+  box-shadow: 12px 12px 2px 1px rgba(250, 158, 0, 0.2);
+}
+.button-left.rock {
+  box-shadow: 12px 12px 2px 1px rgba(86, 85, 83, 0.2);
+}
+.button-left.ice {
+  box-shadow: 12px 12px 2px 1px rgba(12, 187, 245, 0.2);
+}
+.button-left.dragon {
+  box-shadow: 12px 12px 2px 1px rgba(114, 74, 143, 0.2);
+}
+
+.button-right.grass {
+  box-shadow: -12px 12px 2px -1px rgba(54, 163, 0, 0.2);
+}
+
+.button-right.fire {
+  box-shadow: -12px 12px 2px -1px rgba(207, 10, 3, 0.2);
+}
+
+.button-right.water {
+  box-shadow: -12px 12px 2px -1px rgba(0, 76, 253, 0.2);
+}
+
+.button-right.electric {
+  box-shadow: -12px 12px 2px -1px rgba(251, 217, 80, 0.2);
+}
+.button-right.normal {
+  box-shadow: -12px 12px 2px -1px rgba(116, 103, 122, 0.2);
+}
+.button-right.ground {
+  box-shadow: -12px 12px 2px -1px rgba(107, 84, 62, 0.2);
+}
+
+.button-right.bug {
+  box-shadow: -12px 12px 2px -1px rgba(101, 245, 12, 0.2);
+}
+.button-right.poison {
+  box-shadow: -12px 12px 2px -1px rgba(197, 102, 251, 0.2);
+}
+.button-right.psychic {
+  box-shadow: -12px 12px 2px -1px rgba(112, 2, 191, 0.2);
+}
+.button.right.fighting {
+  box-shadow: -12px 12px 2px -1px rgba(250, 158, 0, 0.2);
+}
+.button-right.rock {
+  box-shadow: -12px 12px 2px -1px rgba(86, 85, 83, 0.2);
+}
+
+.button-right.ice {
+  box-shadow: -12px 12px 2px -1px rgba(12, 187, 245, 0.2);
+}
+.button-right.dragon {
+  box-shadow: -12px 12px 2px -1px rgba(114, 74, 143, 0.2);
+}
 
 .detail-image img {
 height: 200px;
 width: 200px;
 background-size: cover;
+}
+
+.type-row, .subtype-row, .strength-row, .weakness-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.pokemon-type, .pokemon-subtype, .strength-type, .weakness-type {
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  font-weight: bold;
+  padding: 2px;
+  font-size: 1rem;
+  margin-left: 10px;
+}
+
+.pokemon-type.grass, .pokemon-subtype.grass, .strength-grass, .weakness-grass {
+  background-color: rgba(54, 163, 0, 1);
+  
+}
+.pokemon-type.fire, .pokemon-subtype.fire, .strength-fire, .weakness-fire {
+background-color: rgba(207, 10, 3, 1);
+color: white;
+}
+.pokemon-type.water, .pokemon-subtype.water, .strength-water, .weakness-water {
+background-color: rgba(0, 76, 253, 1);
+color: white;
+}
+.pokemon-type.electric, .pokemon-subtype.electric, .strength-electric, .weakness-electric {
+ background-color:  rgba(251, 217, 80, 1);
+}
+.pokemon-type.normal, .pokemon-subtype.normal, .strength-normal, .weakness-normal {
+background-color: rgba(116, 103, 122, 1);
+color: white;
+}
+.pokemon-type.ground, .pokemon-subtype.ground, .strength-ground, .weakness-ground {
+background-color: rgba(107, 84, 62, 1);
+color: white;
+}
+.pokemon-type.bug, .pokemon-subtype.bug, .strength-bug, .weakness-bug {
+background-color: rgba(101, 245, 12, 1);
+}
+.pokemon-type.poison, .pokemon-subtype.poison, .strength-poison, .weakness-poison {
+background-color: rgba(197, 102, 251, 1);
+}
+.pokemon-type.psychic, .pokemon-subtype.psychic, .strength-psychic, .weakness-psychic {
+background-color: rgba(112, 2, 191, 1);
+}
+.pokemon-type.fighting, .pokemon-subtype.fighting, .strength-fighting, .weakness-fighting {
+background-color: rgba(250, 158, 0, 1);
+}
+.pokemon-type.rock, .pokemon-subtype.rock, .strength-rock, .weakness-rock {
+ background-color:rgba(86, 85, 83, 1);
+ color: white;
+}
+.pokemon-type.ice, .pokemon-subtype.ice, .strength-ice, .weakness-ice {
+background-color: rgba(12, 187, 245, 1);
+}
+.pokemon-type.dragon, .pokemon-subtype.dragon, .strength-dragon, .weakness-dragon {
+ background-color: rgba(114, 74, 143, 1);
+ color: white;
+}
+
+.pokemon-subtype.flying, .strength-flying, .weakness-flying {
+  background-color: rgb(57, 90, 83);
+  color: white;
+}
+
+.pokemon-subtype.none {
+  display: none;
 }

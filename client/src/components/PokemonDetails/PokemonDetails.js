@@ -1,7 +1,9 @@
 import React, { useContext, useEffect } from 'react';
 import { PokemonContext } from '../../context/PokemonContext';
 import { useParams, useNavigate } from 'react-router-dom';
+import {Container, Row, Col, Card} from 'react-bootstrap'
 import SearchBar from '../SearchBar/SearchBar';
+import Footer from '../Footer/Footer'
 import './PokemonDetails.scss';
 
 
@@ -24,6 +26,7 @@ useEffect(() => {
       console.log('Fetching Pokémon details for pokemon_num:', pokemon_num);
       const pokemon = pokemons.find((pokemon) => pokemon.pokemon_num === parseInt(pokemon_num));
       console.log('Found Pokémon:', pokemon);
+      console.log(pokemon.strength.split(", "));
       setSelectedPokemon(pokemon);
     } catch (err) {
       console.error('Error fetching Pokémon details:', err);
@@ -62,8 +65,33 @@ if (loading) {
     navigate(`/details/${previousPokemon.pokemon_num}`);
   };
 
-
+  const colourCoderStrength = () => {
+    const strengthString = selectedPokemon.strength;
+    const wordArray = strengthString.split(", ");
+    return wordArray.map((word, index) => (
+      <div 
+        key={index} 
+        className={`strength-type strength-${word.toLowerCase()}`}
+        style={{height: '30px', width: '100px', borderRadius: '5px', fontWeight: 'bold', padding: '2px', fontSize: '1rem'}}
+      >
+        {word}
+      </div>
+    ));
+  };
  
+  const colourCoderWeakness = () => {
+    const weaknessString = selectedPokemon.weakness;
+    const wordArray = weaknessString.split(", ");
+    return wordArray.map((word, index) => (
+      <div 
+        key={index} 
+        className={`weakness-type weakness-${word.toLowerCase()}`}
+        style={{height: '30px', width: '100px', borderRadius: '5px', fontWeight: 'bold', padding: '2px', fontSize: '1rem'}}
+      >
+        {word}
+      </div>
+    ));
+  };
   
 
   return (
@@ -71,45 +99,87 @@ if (loading) {
         <SearchBar/>
 
       {selectedPokemon && (
-        <div className="detail-wrapper">
+        <Container fluid className="detail-wrapper">
+          <Row>
+            
+      
+            <Col xs={12}>
           <div className={`detail-card ${selectedPokemon.type.toLowerCase()}`}>
-            <div className="card-inner">
-              <div className="card-top">
+            <Row className="card-inner">
+              <Col>
+              <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
+              <p><span>Weight:</span> {selectedPokemon.weight}</p>
+              <p><span>Height:</span> {selectedPokemon.height}</p>
+                <p><span>Health:</span> {selectedPokemon.health} HP</p>
+                <p><span>Attack:</span> {selectedPokemon.attacks}</p>
+                <p><span>Other attack:</span> {selectedPokemon.second_attack}</p>
+              </Card>
+              </Col>
+              <Col>
+              <Card className={`card-right ${selectedPokemon.type.toLowerCase()}`}>
                 <span>#{selectedPokemon.pokemon_num}</span><br />
                 <h2>{selectedPokemon.name}</h2>
                 <div className="detail-image">
                   <img src={selectedPokemon.images} alt={selectedPokemon.name} />
                 </div>
-                <p><span>Description:</span> {selectedPokemon.description}</p>
-              </div>
+                <p>{selectedPokemon.description}</p>
+              </Card>
+              </Col>
+       
+              </Row>
+<Row>
+  <Col>
+  <Card className={`card-middle ${selectedPokemon.type.toLowerCase()}`}>
+    <div className="type-row">
+    <div className={`pokemon-type ${selectedPokemon.type.toLowerCase()}`}>{selectedPokemon.type}</div>
+    </div>
+    <div className="subtype-row">
+    <div className={`pokemon-subtype ${selectedPokemon.subtype.toLowerCase()}`}>{selectedPokemon.subtype}</div>
+    </div>
+  
+<div className="strength-row">
+{colourCoderStrength()}
+</div>
+ <div className="weakness-row">
+ {colourCoderWeakness()}
+</div>
+ 
 
-              <div className="card-middle">
+  </Card>
+  
+  </Col>
               
-                <p><span>Health:</span> {selectedPokemon.health} HP</p>
-                <p><span>Attack:</span> {selectedPokemon.attacks}</p>
-                <p><span>Type:</span> {selectedPokemon.type}</p>
-                <p><span>Subtype:</span> {selectedPokemon.subtype}</p>
-                <p><span>Weak against:</span> {selectedPokemon.weakness}</p>
-                <p><span>Strong against:</span> {selectedPokemon.strength}</p>
-                <p><span>Other attack:</span> {selectedPokemon.second_attack}</p>
-                <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
-                
+</Row>
+<Row>
+  <Col>
+  <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
+    <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
+  </Card>
+  
+  </Col>
+</Row>
 
-              </div>
-
-              <div className="card-bottom">
-                <button onClick={goToPreviousPokemon} className="btn btn-dark">
-                  Previous
+          </div>
+              
+              </Col>
+              
+              </Row>
+              <div className="card-button-left">
+                <button onClick={goToPreviousPokemon} className={`button-left ${selectedPokemon.type.toLowerCase()}`}>
+                  Prev
                 </button>
-                <button onClick={goToNextPokemon} className="btn btn-dark">
+                </div>
+              <div className='card-button-right'>
+                <button onClick={goToNextPokemon} className={`button-right ${selectedPokemon.type.toLowerCase()}`}>
                   Next
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
+        </Container>
+        
       )}
+          <Footer/>
     </div>
+
   );
 };
 
