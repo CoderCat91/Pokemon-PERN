@@ -130,17 +130,17 @@ if (loading) {
 <Row>
   <Col>
   <Card className={`card-middle ${selectedPokemon.type.toLowerCase()}`}>
-    <div className="type-row">
+    <div className="type-row"><p>Type</p>
     <div className={`pokemon-type ${selectedPokemon.type.toLowerCase()}`}>{selectedPokemon.type}</div>
     </div>
-    <div className="subtype-row">
+    <div className="subtype-row"><p>Subtype</p>
     <div className={`pokemon-subtype ${selectedPokemon.subtype.toLowerCase()}`}>{selectedPokemon.subtype}</div>
     </div>
   
-<div className="strength-row">
+<div className="strength-row"><p>Strong against</p>
 {colourCoderStrength()}
 </div>
- <div className="weakness-row">
+ <div className="weakness-row"><p>Weak against</p>
  {colourCoderWeakness()}
 </div>
  

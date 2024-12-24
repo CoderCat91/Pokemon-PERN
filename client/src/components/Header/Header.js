@@ -21,13 +21,13 @@ const Header = () => {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
-    <Container>
+    <Navbar expand="lg" className="header-wrapper">
+    <Container fluid className='header-container'>
     <Navbar.Brand href='/' className='header-logo'>      
             <img src={logo} alt='pokemon' />
         </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Collapse id="basic-navbar-nav" className='navbar-col'>
         <Nav className="me-auto">
         <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <span>Home</span>
@@ -40,7 +40,7 @@ const Header = () => {
             <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
               <span>Pokédex</span>
             </NavLink>
-            <button onClick={() => signOut()} className='btn btn-danger btn-lg' style={{ alignSelf: 'center', fontWeight: 'bolder', boxShadow: '2px 2px 2px 2px #cecccc' }}>
+            <button onClick={() => signOut()} className='logout-button' style={{ alignSelf: 'center', fontWeight: 'bolder', boxShadow: '2px 2px 2px 2px #cecccc' }}>
               Logout
             </button>
           </div>

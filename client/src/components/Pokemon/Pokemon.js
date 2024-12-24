@@ -71,8 +71,7 @@ const Pokemon = () => {
   return (
     <div>
         <SearchBar/>
-        <Container fluid className='pokemon-container'>
-      <p><em>Add Pokemon to your Pokedex to truely discover their power.</em></p>
+        <h4>Add Pokemon to your Pokedex to truely discover their power.</h4>
       <Buttons
         filterItem={filterItem}
         setPokemons={setFilteredPokemons} 
@@ -80,6 +79,8 @@ const Pokemon = () => {
         pokemons={pokemons}
         className="pokemon-buttons"
       />
+        <Container fluid className='pokemon-container'>
+     
       <Row className="pokemon-row">
             {filteredPokemons &&
               filteredPokemons
@@ -87,11 +88,12 @@ const Pokemon = () => {
                 .map((pokemon) => (
                   <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.id}>
                     <div className='pokemon-image-wrapper'> 
+                    <Card.Title><h5>#{pokemon.pokemon_num}</h5></Card.Title>
                       <Card.Img src={pokemon.images} alt={pokemon.name}/></div>
                     <Card.Body> 
-                      <Card.Title><em>#{pokemon.pokemon_num}</em></Card.Title>
+                      
                       <Card.Text>
-                      <p>{pokemon.name}</p>
+                      <h5>{pokemon.name}</h5>
                       <button
                         onClick={() => addPokemonToPokedex(pokemon.id)}
                         className="btn btn-warning">

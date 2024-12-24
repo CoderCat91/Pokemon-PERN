@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 30px;
   .btn-primary {
     padding: 10px;
     margin-left: 10px;
@@ -11,58 +12,99 @@
   }
 }
 
-
+.grass-btn {
+  background-color: rgba(54, 163, 0, 0.8);
+}
+.grass-btn:hover {
+  background-color: rgba(54, 163, 0, 1);
+}
 .fire-btn {
-    background-color: rgb(180, 0, 0);
+    background-color: rgba(207, 10, 3, 0.8);
   }
-  
-  .grass-btn {
-    background-color: rgb(3, 141, 3);
+  .fire-btn:hover {
+    background-color: rgba(207, 10, 3, 1);
   }
   
   .water-btn {
-    background-color: rgb(5, 5, 177);
+    background-color: rgba(0, 76, 253, 0.8);
   }
-
-  .bug-btn {
-    background-color: rgb(87, 223, 34);
+  .water-btn:hover {
+    background-color: rgba(0, 76, 253, 1);
   }
-  
-  .ground-btn {
-    background-color: rgb(121, 61, 2);
-  }
-  
-  .normal-btn {
-    background-color: rgb(179, 179, 240);
-  }
-  
-  .poison-btn {
-    background-color: rgb(148, 52, 238);
-  }
-  
   .electric-btn {
-    background-color: rgb(230, 255, 1);
+    background-color: rgba(251, 217, 80, 0.8);
+    color: black;
   }
+  .electric-btn:hover {
+    background-color: rgba(251, 217, 80, 1);
+    color: black;
+  }
+  .normal-btn {
+    background-color: rgba(116, 103, 122, 0.8);
   
+  }
+  .normal-btn:hover {
+    background-color: rgba(116, 103, 122, 1);
+  
+  }
+  .ground-btn {
+    background-color: rgba(107, 84, 62, 0.8);
+  }
+  .ground-btn:hover {
+    background-color: rgba(107, 84, 62, 1);
+  }
+  .bug-btn {
+    background-color: rgba(101, 245, 12, 0.8);
+    color: black;
+  }
+  .bug-btn:hover {
+    background-color: rgba(101, 245, 12, 1);
+    color: black;
+  }
+  .poison-btn {
+    background-color: rgba(197, 102, 251, 0.8);
+    color: black;
+  }
+  .poison-btn:hover {
+    background-color: rgba(197, 102, 251, 1);
+    color: black;
+  }
   .psychic-btn {
-    background-color: rgb(83, 0, 160);
+    background-color: rgba(112, 2, 191, 0.8);
   }
-  
+  .psychic-btn:hover {
+    background-color: rgba(112, 2, 191, 1);
+  }
   .fighting-btn {
-    background-color: rgb(244, 117, 38);
+    background-color: rgba(250, 158, 0, 0.8);
+    color: black;
   }
-
+  .fighting-btn:hover {
+    background-color: rgba(250, 158, 0, 1);
+    color: black;
+  }
   .rock-btn {
-    background-color: rgb(62, 87, 99);
+    background-color: rgba(86, 85, 83, 0.8);
+  }
+  .rock-btn:hover {
+    background-color: rgba(86, 85, 83, 1);
   }
   .ice-btn {
-    background-color: rgb(62, 255, 249);
+    background-color: rgba(12, 187, 245, 0.8);
+    color: black;
+  }
+  .ice-btn:hover {
+    background-color: rgba(12, 187, 245, 1);
+    color: black;
   }
   .dragon-btn {
-    background-color: rgb(159, 79, 162);
+    background-color: rgba(114, 74, 143, 0.8);
+  }
+  .dragon-btn:hover {
+    background-color: rgba(114, 74, 143, 1);
   }
   
   .default-btn {
-    background-color: rgb(8, 0, 0);
+    background-color: #000;
   }
   

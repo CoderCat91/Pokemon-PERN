@@ -5,6 +5,9 @@
     height:auto;
     position: relative;
 }
+h2 {
+  font-family: "Audiowide", sans-serif;
+}
 
 .detail-card {
     width: 85%;
@@ -19,14 +22,15 @@
   border: 2px solid rgba(54, 163, 0, 0.5);
   box-shadow: -12px -12px 2px 1px rgba(54, 163, 0, 0.2); 
 }
+.detail-card.fire { 
+  border: 2px solid rgba(207, 10, 3, 0.5);
+  box-shadow: -12px -12px 2px 1px rgba(207, 10, 3, 0.2); 
+ }
   .detail-card.water { 
     border: 2px solid rgba(0, 76, 253, 0.5);
     box-shadow: -12px -12px 2px 1px rgba(0, 76, 253, 0.2) 
   }
-  .detail-card.fire { 
-    border: 2px solid rgba(207, 10, 3, 0.5);
-    box-shadow: -12px -12px 2px 1px rgba(207, 10, 3, 0.2); 
-   }
+ 
   .detail-card.electric { 
     border: 2px solid rgba(251, 217, 80, 0.5);
     box-shadow: -12px -12px 2px 1px rgba(251, 217, 80, 0.2);
@@ -365,6 +369,7 @@ background-color: rgba(197, 102, 251, 1);
 }
 .pokemon-type.psychic, .pokemon-subtype.psychic, .strength-psychic, .weakness-psychic {
 background-color: rgba(112, 2, 191, 1);
+color: white;
 }
 .pokemon-type.fighting, .pokemon-subtype.fighting, .strength-fighting, .weakness-fighting {
 background-color: rgba(250, 158, 0, 1);
@@ -386,6 +391,7 @@ background-color: rgba(12, 187, 245, 1);
   color: white;
 }
 
-.pokemon-subtype.none {
-  display: none;
+.pokemon-subtype.none, .strength-none, .weakness-none {
+  background-color: black;
+  color: white;
 }
