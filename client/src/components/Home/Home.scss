@@ -4,6 +4,11 @@
     height: 500px;
     width: 100%;
     padding: 20px;
+    background-image: url('../../images/pattern-png-30769.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h2 {
@@ -63,4 +68,17 @@ figcaption {
    color: black;
    text-transform: capitalize;
    font-weight: bolder;
+}
+
+.logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.logo-wrapper img {
+    width: 200px;
+    aspect-ratio: auto;
+    background-size: cover;
+    padding: 10px;
+
 }

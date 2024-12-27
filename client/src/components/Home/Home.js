@@ -1,6 +1,7 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
 import './Home.scss';
+import logo from '../../images/Pokemon_logo_PNG2.png'
 import venasaur from '../../images/ezgif.com-webp-to-png (3).png';
 import blastoise from '../../images/ezgif.com-webp-to-png (9).png';
 import charizard from '../../images/ezgif.com-webp-to-png (6).png'
@@ -9,6 +10,9 @@ const Home = () => {
     return (
     <div>
         <div className="home-wrapper">
+          <div className='logo-wrapper'>
+            <img src={logo} alt="Pokemon logo"/>
+          </div>
         <h2>Pokémon - Did you catch 'em all?</h2>
         <div className="home-inner">
          <p>Eveyone remembers the 1995 epic creation that is Pokemon. Whether you collected the cards, watched the shows or played the games, Pokemon was part of your childhood. This PokeDex features the original 151 Pokemon!

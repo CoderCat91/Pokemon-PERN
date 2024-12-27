@@ -54,12 +54,12 @@ const Buttons = ({ filterItem, setPokemons, pokeType, pokemons }) => {
           {val}
         </Button>
       ))}
-      <button
-        className="btn-dark text-white p-1 px-3 mx-5 mb-2 fw-bold"
+      <Button
+        className="btn-dark"
         onClick={chooseAll}
       >
         All
-      </button>
+      </Button>
     </Container>
   );
 };

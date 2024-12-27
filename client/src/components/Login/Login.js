@@ -1,6 +1,11 @@
 import { useState, useContext } from 'react'
 import { onLogin } from '../../api/auth'
-import { AuthContext } from '../../context/authContext'
+import Footer from '../Footer/Footer'
+import {NavLink} from 'react-router-dom'
+import { AuthContext } from '../../context/authContext';
+import {Row, Col, Container} from 'react-bootstrap'
+import login from '../../images/background.jpg'
+import logo from '../../images/Pokemon_logo_PNG2.png'
 import charizard from '../../images/ezgif.com-webp-to-png (6).png';
 import './Login.scss';
 
@@ -36,9 +41,16 @@ const Login = () => {
 
 
   return (
-    <div>
-      <div className='main-wrapper'>
-        <div className='login-wrapper'>
+    <>
+    <div className='login-page'>
+    <div className='pokemon-logo'>
+      <img src={logo} alt="pokemon logo"/>
+    </div>
+    <p className='slogan'>Gotta catch 'em all!</p>
+      <Container fluid className='login-wrapper'>
+        <Row>
+          <Col xl={6}>
+        <div className='login-inner'>
           <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
             <h1>Login</h1>
 
@@ -53,7 +65,6 @@ const Login = () => {
                 id='email'
                 name='email'
                 value={values.email}
-                placeholder='Your email...'
                 required
               />
             </div>
@@ -69,23 +80,31 @@ const Login = () => {
                 className='form-control'
                 id='password'
                 name='password'
-                placeholder='Password'
                 required
               />
             </div>
 
             <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
 
-            <button type='submit' className='btn btn-danger'>
+            <button type='submit' className='login-button'>
               Submit
             </button>
+            <p className="sign-up-link">New to this Pokedex?  <NavLink to='/register'><span>Sign up!</span></NavLink></p>
           </form>
+        
+         
         </div>
+        </Col>
+        <Col xl={6}>
         <div className='picture-wrapper'>
           <img src={charizard} alt='charizard' />
         </div>
-      </div>
+        </Col>
+        </Row>
+      </Container>
     </div>
+  <Footer/>
+  </>
   )
 }
 

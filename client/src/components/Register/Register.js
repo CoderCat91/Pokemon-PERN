@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { onRegistration } from '../../api/auth'
-import image from '../../images/pngegg (2).png'
+import logo from '../../images/Pokemon_logo_PNG2.png'
+import {NavLink} from 'react-router-dom'
+import {Container, Row, Col} from 'react-bootstrap'
+import Footer from '../Footer/Footer'
+import image from '../../images/ezgif.com-webp-to-png (3).png'
 import './Register.scss';
 
 const Register = () => {
@@ -31,8 +35,15 @@ const Register = () => {
   }
 
   return (
-    <div>
- <div className='register-wrapper'>
+    <>
+    <div className='register-page'>
+          <div className='pokemon-logo'>
+            <img src={logo} alt="pokemon logo"/>
+          </div>
+          <p className='slogan'>Gotta catch 'em all!</p>
+ <Container fluid className='register-wrapper'>
+  <Row>
+    <Col xl={6}>
   <div className='register-inner'>
       <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
         <h1>Register</h1>
@@ -48,7 +59,6 @@ const Register = () => {
             id='email'
             name='email'
             value={values.email}
-            placeholder='Your email...'
             required
           />
         </div>
@@ -64,7 +74,6 @@ const Register = () => {
             className='form-control'
             id='password'
             name='password'
-            placeholder='Password'
             required
           />
         </div>
@@ -72,17 +81,23 @@ const Register = () => {
         <div style={{ color: 'red', margin: '10px 0' }}>{error}</div>
         <div style={{ color: 'green', margin: '10px 0' }}>{success}</div>
 
-        <button type='submit' className='btn btn-danger'>
+        <button type='submit' className='register-button'>
           Submit
         </button>
+        <p className="login-link">Already registered?  <NavLink to='/login'><span>Login!</span></NavLink></p>
       </form>
     </div>
+    </Col>
+    <Col xl={6}>
     <div className='info-wrapper'>
-    <h1>Welcome to the PokeDex!</h1>
 <img src={image} alt='pikachu'/>
   </div>
+  </Col>
+  </Row>
+    </Container>
     </div>
-    </div>
+    <Footer/>
+    </>
   )
 }
 

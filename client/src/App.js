@@ -8,7 +8,6 @@ import Register from './components/Register/Register';
 import Pokemon from './components/Pokemon/Pokemon';
 import PokemonDetails from './components/PokemonDetails/PokemonDetails'
 import { PokemonContextProvider} from './context/PokemonContext';
-import Header from './components/Header/Header'
 
 
 
@@ -30,7 +29,6 @@ const App = () => {
       <AuthContextProvider>
     <PokemonContextProvider>
     <BrowserRouter>
-    <Header/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/pokemon' element={<Pokemon />} />

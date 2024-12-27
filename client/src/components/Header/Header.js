@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
-import logo from '../../images/Pokemon_logo_PNG2.png'
 import { AuthContext } from '../../context/authContext'
 import { onLogout } from '../../api/auth'
 import {Navbar, Container, Nav} from 'react-bootstrap'
@@ -23,22 +22,19 @@ const Header = () => {
   return (
     <Navbar expand="lg" className="header-wrapper">
     <Container fluid className='header-container'>
-    <Navbar.Brand href='/' className='header-logo'>      
-            <img src={logo} alt='pokemon' />
-        </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className='navbar-col'>
         <Nav className="me-auto">
         <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-            <span>Home</span>
+           <div className='hexagon'> <span>Home</span></div>
           </NavLink>
           <NavLink to='/pokemon' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-            <span>Pokémon</span>
+            <div className="hexagon"><span>Pokémon</span></div>
           </NavLink>
           {isAuth ? (
           <div className='auth-div'>
             <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <span>Pokédex</span>
+              <div className='hexagon'><span>Pokédex</span></div>
             </NavLink>
             <button onClick={() => signOut()} className='logout-button' style={{ alignSelf: 'center', fontWeight: 'bolder', boxShadow: '2px 2px 2px 2px #cecccc' }}>
               Logout
@@ -47,11 +43,11 @@ const Header = () => {
         ) : (
           <div className='log-div'>
             <NavLink to='/login' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <span>Login</span>
+              <div className="hexagon"><span>Login</span></div>
             </NavLink>
 
             <NavLink to='/register' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <span>Register</span>
+             <div className='hexagon'><span>Register</span></div> 
             </NavLink>
           </div>
         )}
