@@ -3,6 +3,7 @@ import { PokemonContext } from '../../context/PokemonContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import {Container, Row, Col, Card} from 'react-bootstrap'
 import SearchBar from '../SearchBar/SearchBar';
+import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import './PokemonDetails.scss';
 
@@ -95,7 +96,8 @@ if (loading) {
   
 
   return (
-    <div>
+    <div className="details-page">
+      <Header/>
         <SearchBar/>
 
       {selectedPokemon && (
@@ -130,17 +132,17 @@ if (loading) {
 <Row>
   <Col>
   <Card className={`card-middle ${selectedPokemon.type.toLowerCase()}`}>
-    <div className="type-row"><p>Type</p>
+    <div className="type-row"><span>Type</span>
     <div className={`pokemon-type ${selectedPokemon.type.toLowerCase()}`}>{selectedPokemon.type}</div>
     </div>
-    <div className="subtype-row"><p>Subtype</p>
+    <div className="subtype-row"><span>Subtype</span>
     <div className={`pokemon-subtype ${selectedPokemon.subtype.toLowerCase()}`}>{selectedPokemon.subtype}</div>
     </div>
   
-<div className="strength-row"><p>Strong against</p>
+<div className="strength-row"><span>Strong against</span>
 {colourCoderStrength()}
 </div>
- <div className="weakness-row"><p>Weak against</p>
+ <div className="weakness-row"><span>Weak against</span>
  {colourCoderWeakness()}
 </div>
  

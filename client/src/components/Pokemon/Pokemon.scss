@@ -1,14 +1,15 @@
 @import '../../common/style.scss';
 
-
-.pokemon-container {
+.pokemon-page {
+    min-height: 100vh;
     width: 100%;
-    background-color: rgba(203, 218, 251, 0.1);
     background-image: url('../../images/pattern-png-30769.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+.pokemon-container {
     p{
         text-align: center;
         padding-top: 20px;

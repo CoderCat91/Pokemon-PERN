@@ -1,9 +1,8 @@
 @import '../../common/style.scss';
 
-.home-wrapper {
-    height: 500px;
+.home-page {
+    height: 100vh;
     width: 100%;
-    padding: 20px;
     background-image: url('../../images/pattern-png-30769.png');
     background-position: center;
     background-size: cover;
@@ -11,19 +10,30 @@
     background-attachment: fixed;
 }
 
-h2 {
+.home-text {
     text-align: center;
+    font-family: "Poetsen One", serif;
+    font-size: 1.5rem;
 }
-.home-inner {
-    display: wrap;
+.home-wrapper {
+   width: 100%;
+   height: 80vh;
 }
 .home-inner p {
+    background-color: white;
+    width: 80%;
+    margin: 30px auto;
     padding: 20px;
+    font-family: "Titillium Web", serif;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 8px 8px 2px 1px  rgba(0, 0, 0, 0.25)
 }
 
 .home-media {
-    height: 300px;
-    width: 90%;
+    height: auto;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     justify-content: space-evenly;
@@ -32,42 +42,54 @@ h2 {
 a {
     text-decoration: none;
 }
+.ven-fig, .char-fig, .blas-fig {
+ display: flex;
+ justify-content: center;
+    height: 350px;
+    width: 300px;
+    margin-top: 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    a {
+        color: white
+    }
+    a:hover {
+        color:orange;
+    }
+}
+
 
 .ven-fig {
-    background-color: rgba(35, 243, 28, 0.471);
-    height: 300px;
-    width: 300px;
-    border-radius: 12px;
+    background-image: url('../../images//8764038.jpg');
+    background-position: center;
+    background-size: cover;
     box-shadow: 0px 0px 8px rgb(4, 125, 14);
 }
 .char-fig {
-    background-color: rgba(243, 28, 28, 0.471);
-    height: 300px;
-    width: 300px;
-    border-radius: 12px;
+    background-image:url('../../images/red-grunge-background.jpg');
+    background-position: center;
+    background-size: cover;
     box-shadow: 0px 0px 8px rgb(175, 3, 3);
 }
 
 .blas-fig {
-    background-color: rgba(30, 61, 240, 0.471);
-    height: 300px;
-    width: 300px;
-    border-radius: 12px;
+    background-image:url('../../images/83.jpg');
+    background-position: center;
+    background-size: cover;
     box-shadow: 0px 0px 8px rgb(16, 1, 157);
 
 }
-figure img {
-    height: 250px;
-    width: 250px;
+.char-fig img, .ven-fig img {
+    width: 100%;
+    aspect-ratio: auto;
     background-size: cover;
-    margin-left: 10%;
-    margin-top: 5%;
 }
-figcaption {
-   text-align: center;
-   color: black;
-   text-transform: capitalize;
-   font-weight: bolder;
+
+.blas-fig img {
+    width: 230px;
+    margin: 0 auto;
+    aspect-ratio: auto;
+    margin-bottom: 40px;
 }
 
 .logo-wrapper {
@@ -76,7 +98,7 @@ figcaption {
     justify-content: center;
 }
 .logo-wrapper img {
-    width: 200px;
+    width: 300px;
     aspect-ratio: auto;
     background-size: cover;
     padding: 10px;

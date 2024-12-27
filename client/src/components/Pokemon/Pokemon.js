@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
+import Header from '../Header/Header'
 import PokemonFinder from '../../api/PokemonFinder';
 import { PokemonContext } from '../../context/PokemonContext';
 import './Pokemon.scss';
@@ -69,7 +70,8 @@ const Pokemon = () => {
   
 
   return (
-    <div>
+    <div className="pokemon-page">
+            <Header/>
         <SearchBar/>
         <h4>Add Pokemon to your Pokedex to truely discover their power.</h4>
       <Buttons

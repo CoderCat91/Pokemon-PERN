@@ -1,8 +1,20 @@
 @import '../../common/style.scss';
 
+
+.details-page {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('../../images/pattern-png-30769.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 .detail-wrapper {
     width: 100%;
     height:auto;
+    margin: 50px 0px 30px 0px;
     position: relative;
 }
 h2 {
@@ -89,6 +101,10 @@ h2 {
 .card-left {
 width: 90%;
 background-color: transparent;
+span {
+  font-weight: bold;
+  font-size: 1rem;
+}
 }
 .card-right {
   background-color: #fff;
@@ -322,10 +338,18 @@ background-size: cover;
 }
 
 .type-row, .subtype-row, .strength-row, .weakness-row {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-bottom: 10px;
+  span {
+    position: absolute;
+    left: 20%;
+    color: black;
+    font-weight: bold;
+    font-size: 1rem;
+  }
 }
 
 .pokemon-type, .pokemon-subtype, .strength-type, .weakness-type {
