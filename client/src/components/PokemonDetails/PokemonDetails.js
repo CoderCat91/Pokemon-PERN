@@ -110,8 +110,8 @@ if (loading) {
             <Row className="card-inner">
               <Col>
               <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
-              <p><span>Weight:</span> {selectedPokemon.weight}</p>
-              <p><span>Height:</span> {selectedPokemon.height}</p>
+              <p><span>Height:</span> {selectedPokemon.height}m</p>
+              <p><span>Weight:</span> {selectedPokemon.weight}kg</p>
                 <p><span>Health:</span> {selectedPokemon.health} HP</p>
                 <p><span>Attack:</span> {selectedPokemon.attacks}</p>
                 <p><span>Other attack:</span> {selectedPokemon.second_attack}</p>
@@ -139,10 +139,10 @@ if (loading) {
     <div className={`pokemon-subtype ${selectedPokemon.subtype.toLowerCase()}`}>{selectedPokemon.subtype}</div>
     </div>
   
-<div className="strength-row"><span>Strong against</span>
+<div className="strength-row"><span>Strengths</span>
 {colourCoderStrength()}
 </div>
- <div className="weakness-row"><span>Weak against</span>
+ <div className="weakness-row"><span>Weaknesses</span>
  {colourCoderWeakness()}
 </div>
  
@@ -154,12 +154,15 @@ if (loading) {
 </Row>
 <Row>
   <Col>
-  <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
-    <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
-  </Card>
-  
+    <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
+      <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
+      {selectedPokemon.evolve_image ? (
+        <img src={selectedPokemon.evolve_image} alt="Evolution" />
+      ) : null}
+    </Card>
   </Col>
 </Row>
+
 
           </div>
               

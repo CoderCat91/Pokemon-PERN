@@ -11,17 +11,17 @@ router.post('/add', async (req, res) => {
     }
     try {
         const pokemon = await db.query(
-            `SELECT name, type, health, attacks, evolves_into, images, subtype, height, weight, description, second_attack, weakness, strength FROM pokemon WHERE pokemon_num = $1`,
+            `SELECT name, type, health, attacks, evolves_into, images, subtype, height, weight, description, second_attack, weakness, strength, evolve_image FROM pokemon WHERE pokemon_num = $1`,
             [pokemon_num]
         );
         if (pokemon.rows.length === 0) {
             return res.status(404).json({ error: 'Pokemon not found' });
         }
-        const { name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack} = pokemon.rows[0];
+        const { name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image} = pokemon.rows[0];
         const result = await db.query(
-            `INSERT INTO pokedex (user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack)
-             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) RETURNING *`,
-            [user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack]
+            `INSERT INTO pokedex (user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image)
+             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING *`,
+            [user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image]
         );
         res.status(201).json({ message: "Pokemon added to Pokedex", data: result.rows[0] });
     } catch (error) {
@@ -37,7 +37,7 @@ router.post('/add', async (req, res) => {
   
     try {
         const result = await db.query(
-            `SELECT id, pokemon_num, date_caught, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack
+            `SELECT id, pokemon_num, date_caught, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image
              FROM pokedex WHERE user_id = $1`,
             [user_id]
         );

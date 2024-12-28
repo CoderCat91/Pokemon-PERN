@@ -119,10 +119,13 @@ span {
   
   .card-bottom {
     width: 90%;
-      display: flex;
-      justify-content: center;
   }
-  
+.card-bottom img {
+  height: 200px;
+width: 200px;
+background-size: cover;
+margin: 0 auto;
+}  
 
 .card-left.grass, .card-right.grass, .card-middle.grass, .card-bottom.grass{
   box-shadow: 12px 12px 2px 1px rgba(54, 163, 0, 0.2);
@@ -345,12 +348,14 @@ background-size: cover;
   margin-bottom: 10px;
   span {
     position: absolute;
-    left: 20%;
+    left: 1%;
     color: black;
     font-weight: bold;
     font-size: 1rem;
   }
 }
+
+
 
 .pokemon-type, .pokemon-subtype, .strength-type, .weakness-type {
   height: 30px;
@@ -419,3 +424,4 @@ background-color: rgba(12, 187, 245, 1);
   background-color: black;
   color: white;
 }
+

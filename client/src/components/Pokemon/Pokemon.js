@@ -42,7 +42,7 @@ const Pokemon = () => {
       const userId = localStorage.getItem('userId');
       const selectedPokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
       console.log("Selected Pokémon:", selectedPokemon);
-      const { pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack } = selectedPokemon;
+      const { pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image } = selectedPokemon;
       await PokedexFinder.post('/add', {
         pokemon_num,
         user_id: userId, 
@@ -58,7 +58,8 @@ const Pokemon = () => {
         description, 
         weakness, 
         strength, 
-        second_attack
+        second_attack,
+        evolve_image
       });
       navigate(`/pokedex`);
     } catch (error) {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Footer from '../Footer/Footer'
 import Header from '../Header/Header'
-import {Container, Row, Col, CardGroup, Card, CardBody} from 'react-bootstrap'
+import {Container, Row, Col, Card} from 'react-bootstrap'
 import './Home.scss';
 import logo from '../../images/Pokemon_logo_PNG2.png'
 import venasaur from '../../images/ezgif.com-webp-to-png (3).png';
@@ -17,7 +17,7 @@ const Home = () => {
             <img src={logo} alt="Pokemon logo"/>
           </div>
         <p className="home-text">Did you catch 'em all?</p>
-        <Container fluid className="home-wrapper">
+        <Container fluid className="home-container">
           <Row>
             <Col xl={12}>
         <div className="home-inner">
