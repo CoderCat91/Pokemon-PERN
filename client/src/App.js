@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthContextProvider, AuthContext } from './context/authContext';
-import Pokedex from './components/Pokedex/Pokedex';
 import Home from './components/Home/Home';
+import Pokedex from './components/Pokedex/Pokedex';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Pokemon from './components/Pokemon/Pokemon';
