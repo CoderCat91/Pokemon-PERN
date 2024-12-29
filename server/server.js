@@ -30,14 +30,6 @@ client.connect()
   .then(() => console.log('Connected to PostgreSQL database'))
   .catch((err) => console.error('Failed to connect to PostgreSQL:', err));
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'client/build')));
-  
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-  });
-}
-
 
 app.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
