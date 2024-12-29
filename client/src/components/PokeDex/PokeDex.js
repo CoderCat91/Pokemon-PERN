@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { fetchProtectedInfo, onLogout } from '../../api/auth';
 import { AuthContext } from '../../context/authContext';
 import SearchBar from '../SearchBar/SearchBar';
+import Header from '../Header/Header'
 import PokedexFinder from '../../api/PokedexFinder';
 import Footer from '../Footer/Footer'
 import './Pokedex.scss';
@@ -12,7 +13,7 @@ const Pokedex = () => {
   const [loading, setLoading] = useState(true);
   const [protectedData, setProtectedData] = useState(null);
   const [pokedexData, setPokedexData] = useState([]); 
-  const { isAuth, unauthenticateUser } = useContext(AuthContext);
+  const { isAuth, unauthenticateUser, userId } = useContext(AuthContext);
 const navigate = useNavigate();
 
   const calculateLevel = (dateCaught) => {
@@ -24,8 +25,8 @@ const navigate = useNavigate();
   };
 
   useEffect(() => {
-    const userId = 2; 
-
+    const userId = localStorage.getItem('userId');
+    console.log("User ID:", userId); 
     const fetchPokedex = async () => {
       try {
         const response = await PokedexFinder.get(`/${userId}`);
@@ -48,7 +49,7 @@ const navigate = useNavigate();
 
   const deletePokemonFromPokedex = async (pokemon_num) => {
     try {
-      const userId = 2; 
+      const userId = localStorage.getItem('userId');
       await PokedexFinder.delete(`/${userId}/${pokemon_num}`);
       setPokedexData(pokedexData.filter(pokemon => pokemon.pokemon_num !== pokemon_num));
     } catch (err) {
@@ -92,6 +93,7 @@ const navigate = useNavigate();
 
   return (
     <div className='pokedex-page'>
+      <Header/>
         <SearchBar/>
       <h2>Pokédex</h2>
       <p>Hey! Welcome to your Pokedex, I'm a tool you can use to learn more about Pokemon.<br/>
@@ -102,10 +104,10 @@ const navigate = useNavigate();
     <Row className="pokedex-row">    
  {pokedexData.map((pokemon) => (
     <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.pokemon_num}>
+      <Card.Title><h5>#{pokemon.pokemon_num}</h5></Card.Title>
       <Card.Img src={pokemon.images} alt={pokemon.name} className="pokedex-image" />
       <Card.Body className="pokemon-info">
-      <p>No. {pokemon.pokemon_num}</p>
-        <h3>{pokemon.name}</h3>
+        <h5>{pokemon.name}</h5>
         <p>Type: {pokemon.type}</p>
         <p>Level: {pokemon.level}</p>
         <button onClick={() => selectPokemon(pokemon.pokemon_num)} 

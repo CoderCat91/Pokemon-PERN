@@ -2,8 +2,19 @@
 
 .pokedex-page {
   min-height: 100vh;
+  width: 100%;
+  background-image: url('../../images/pattern-png-30769.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   h2 {
     text-align: center;
+    font-family: "Audiowide", sans-serif;
+  }
+  h5 {
+    text-align: center;
+    font-family: "Audiowide", sans-serif;
   }
   p {
     text-align: center;
@@ -13,6 +24,7 @@
 
 .pokedex-container {
 width: 100%;
+margin-bottom: 80px;
 }
 
 .pokedex-row {
@@ -85,29 +97,97 @@ width: 100%;
 
 
 
-.pokemon-card.grass { border: 2px solid #36a300;
-  box-shadow: 0 8px 20px #36a300; }
-.pokemon-card.water { border: 2px solid #004cfd;
-  box-shadow: 0 8px 20px #004cfd; }
-.pokemon-card.fire { border: 2px solid #cf0a03;
-  box-shadow: 0 8px 20px #cf0a03;  }
-.pokemon-card.electric { border: 2px solid #fbd950;
-  box-shadow: 0 8px 20px #fbd950;  }
-.pokemon-card.normal { border: 2px solid #74677a;
-  box-shadow: 0 8px 20px #74677a; }
-.pokemon-card.ground { border: 2px solid #6b543e; 
-  box-shadow: 0 8px 20px #6b543e; }
-.pokemon-card.bug { border: 2px solid #65f50c;
-  box-shadow: 0 8px 20px #65f50c; }
-.pokemon-card.poison { border: 2px solid #c566fb;
-  box-shadow: 0 8px 20px #c566fb; }
-.pokemon-card.psychic { border: 2px solid #7002bf;
-  box-shadow: 0 8px 20px #7002bf; }
-.pokemon-card.fighting { border: 2px solid #fa9e00; 
-  box-shadow: 0 8px 20px #fa9e00; }
-.pokemon-card.rock { border: 2px solid #565553; 
-  box-shadow: 0 8px 20px #565553; }
-.pokemon-card.ice { border: 2px solid #0cbbf5; 
-  box-shadow: 0 8px 20px #0cbbf5; }
-.pokemon-card.dragon { border: 2px solid #724a8f; 
-  box-shadow: 0 8px 20px #724a8f}
+.pokemon-card.grass { 
+  border: 2px solid rgba(54, 163, 0, 0.5);
+  box-shadow: 6px -14px 35px -11px rgba(54, 163, 0, 0.5) inset; 
+}
+.pokemon-card.grass:hover { 
+  box-shadow: 6px 14px 35px 11px rgba(54, 163, 0, 0.5); 
+}
+  .pokemon-card.water { 
+    border: 2px solid rgba(0, 76, 253, 0.5);
+    box-shadow: 6px -14px 35px -11px rgba(0, 76, 253, 0.5) inset;
+  }
+  .pokemon-card.water:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(0, 76, 253, 0.5);
+  }
+  .pokemon-card.fire { 
+    border: 2px solid rgba(207, 10, 3, 0.5);
+    box-shadow: 6px -14px 35px -11px rgba(207, 10, 3, 0.5) inset; 
+   }
+   .pokemon-card.fire:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(207, 10, 3, 0.5); 
+   }
+  .pokemon-card.electric { 
+    border: 2px solid rgba(251, 217, 80, 0.5);
+    box-shadow: 6px -14px 35px -11px rgba(251, 217, 80, 0.5) inset;
+   }
+   .pokemon-card.electric:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(251, 217, 80, 0.5);
+   }
+  .pokemon-card.normal { 
+    border: 2px solid rgba(116, 103, 122, 0.5) ;
+    box-shadow: 6px -14px 35px -11px rgba(116, 103, 122, 0.5) inset;
+  }
+
+  .pokemon-card.normal:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(116, 103, 122, 0.5);
+  }
+  .pokemon-card.ground { 
+    border: 2px solid rgba(107, 84, 62, 0.5) ; 
+    box-shadow: 6px -14px 35px -11px  rgba(107, 84, 62, 0.5) inset;
+   }
+   .pokemon-card.ground:hover { 
+    box-shadow: 6px -14px 35px -11px  rgba(107, 84, 62, 0.5);
+   }
+  .pokemon-card.bug { 
+    border: 2px solid rgba(101, 245, 12, 0.5);
+    box-shadow: 6px -14px 35px -11px rgba(101, 245, 12, 0.5) inset;
+  }
+  .pokemon-card.bug:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(101, 245, 12, 0.5);
+  }
+  .pokemon-card.poison { 
+    border: 2px solid rgba(197, 102, 251, 0.5) ;
+    box-shadow: 6px -14px 35px -11px rgba(197, 102, 251, 0.5) inset;
+  }
+  .pokemon-card.poison:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(197, 102, 251, 0.5);
+  }
+  .pokemon-card.psychic { 
+    border: 2px solid #7002bf;
+    box-shadow: 6px -14px 35px -11px rgba(112, 2, 191, 0.5) inset;
+   }
+   .pokemon-card.psychic:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(112, 2, 191, 0.5);
+   }
+  .pokemon-card.fighting { 
+    border: 2px solid rgba(250, 158, 0, 0.5); 
+    box-shadow: 6px -14px 35px -11px rgba(250, 158, 0, 0.5) inset;
+  }
+  .pokemon-card.fighting:hover { 
+    box-shadow: 6px 14px 35px 11px rgba(250, 158, 0, 0.5);
+  }
+  .pokemon-card.rock { 
+    border: 2px solid rgba(86, 85, 83, 0.5); 
+    box-shadow: 6px -14px 35px -11px rgba(86, 85, 83, 0.5) inset;
+  }
+  .pokemon-card.rock:hover {  
+    box-shadow: 6px 14px 35px 11px rgba(86, 85, 83, 0.5);
+  }
+  .pokemon-card.ice { 
+    border: 2px solid rgba(12, 187, 245, 0.5); 
+    box-shadow: 6px -14px 35px -11px  rgba(12, 187, 245, 0.5) inset;
+  }
+  .pokemon-card.ice:hover { 
+    box-shadow: 6px 14px 35px 11px  rgba(12, 187, 245, 0.5);
+  }
+  .pokemon-card.dragon { 
+    border: 2px solid rgba(114, 74, 143, 0.5); 
+    box-shadow: 6px -14px 35px -11px  rgba(114, 74, 143, 0.5) inset;
+  }
+  .pokemon-card.dragon:hover { 
+    box-shadow: 6px 14px 35px 11px  rgba(114, 74, 143, 0.5);
+  }
+
+
