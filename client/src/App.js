@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Outlet } from 'react-router-dom';
 import { AuthContextProvider, AuthContext } from './context/authContext';
 import Home from './components/Home/Home';
-import Pokedex from './components/Pokedex/Pokedex';  
+import PokeDex from './components/PokeDex/PokeDex';  
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Pokemon from './components/Pokemon/Pokemon';
@@ -34,7 +34,7 @@ const App = () => {
         <Route path='/pokemon' element={<Pokemon />} />
         <Route path="/details/:pokemon_num" element={<PokemonDetails />} />
         <Route element={<PrivateRoutes />}>
-          <Route path='/pokedex' element={<Pokedex />} />
+          <Route path='/pokedex' element={<PokeDex />} />
         </Route>
 
         <Route element={<RestrictedRoutes />}>

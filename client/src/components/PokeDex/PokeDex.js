@@ -6,10 +6,10 @@ import SearchBar from '../SearchBar/SearchBar';
 import Header from '../Header/Header'
 import PokedexFinder from '../../api/PokedexFinder';
 import Footer from '../Footer/Footer'
-import './Pokedex.scss';
+import './PokeDex.scss';
 import {Container, Card, Row} from 'react-bootstrap'
 
-const Pokedex = () => {
+const PokeDex = () => {
   const [loading, setLoading] = useState(true);
   const [protectedData, setProtectedData] = useState(null);
   const [pokedexData, setPokedexData] = useState([]); 
@@ -122,4 +122,4 @@ const navigate = useNavigate();
 <Footer/>
 </div>
   )}
-export default Pokedex;
+export default PokeDex;
