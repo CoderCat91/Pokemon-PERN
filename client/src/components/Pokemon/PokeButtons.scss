@@ -15,27 +15,27 @@
 .grass-btn {
   background-color: rgba(54, 163, 0, 0.8);
 }
-.grass-btn:hover {
+.grass-btn:hover, .grass-btn:active, .grass-btn:focus {
   background-color: rgba(54, 163, 0, 1);
 }
 .fire-btn {
     background-color: rgba(207, 10, 3, 0.8);
   }
-  .fire-btn:hover {
+  .fire-btn:hover, .fire-btn:active, .fire-btn:focus {
     background-color: rgba(207, 10, 3, 1);
   }
   
   .water-btn {
     background-color: rgba(0, 76, 253, 0.8);
   }
-  .water-btn:hover {
+  .water-btn:hover, .water-btn:active, .water-btn:focus {
     background-color: rgba(0, 76, 253, 1);
   }
   .electric-btn {
     background-color: rgba(251, 217, 80, 0.8);
     color: black;
   }
-  .electric-btn:hover {
+  .electric-btn:hover, .electric-btn:active, .electric-btn:focus {
     background-color: rgba(251, 217, 80, 1);
     color: black;
   }
@@ -43,21 +43,21 @@
     background-color: rgba(116, 103, 122, 0.8);
   
   }
-  .normal-btn:hover {
+  .normal-btn:hover, .normal-btn:active, .normal-btn:focus {
     background-color: rgba(116, 103, 122, 1);
   
   }
   .ground-btn {
     background-color: rgba(107, 84, 62, 0.8);
   }
-  .ground-btn:hover {
+  .ground-btn:hover, .ground-btn:active, .ground-btn:focus {
     background-color: rgba(107, 84, 62, 1);
   }
   .bug-btn {
     background-color: rgba(101, 245, 12, 0.8);
     color: black;
   }
-  .bug-btn:hover {
+  .bug-btn:hover, .bug-btn:active, .bug-btn:focus {
     background-color: rgba(101, 245, 12, 1);
     color: black;
   }
@@ -65,42 +65,42 @@
     background-color: rgba(197, 102, 251, 0.8);
     color: black;
   }
-  .poison-btn:hover {
+  .poison-btn:hover, .poison-btn:active, .poison-btn:focus {
     background-color: rgba(197, 102, 251, 1);
     color: black;
   }
   .psychic-btn {
     background-color: rgba(112, 2, 191, 0.8);
   }
-  .psychic-btn:hover {
+  .psychic-btn:hover, .psychic-btn:active, .psychic-btn:focus {
     background-color: rgba(112, 2, 191, 1);
   }
   .fighting-btn {
     background-color: rgba(250, 158, 0, 0.8);
     color: black;
   }
-  .fighting-btn:hover {
+  .fighting-btn:hover, .fighting-btn:active, .fighting-btn:focus {
     background-color: rgba(250, 158, 0, 1);
     color: black;
   }
   .rock-btn {
     background-color: rgba(86, 85, 83, 0.8);
   }
-  .rock-btn:hover {
+  .rock-btn:hover, .rock-btn:active, .rock-btn:focus {
     background-color: rgba(86, 85, 83, 1);
   }
   .ice-btn {
     background-color: rgba(12, 187, 245, 0.8);
     color: black;
   }
-  .ice-btn:hover {
+  .ice-btn:hover, .ice-btn:active, .ice-btn:focus {
     background-color: rgba(12, 187, 245, 1);
     color: black;
   }
   .dragon-btn {
     background-color: rgba(114, 74, 143, 0.8);
   }
-  .dragon-btn:hover {
+  .dragon-btn:hover, .dragon-btn:active, .dragon-btn:focus {
     background-color: rgba(114, 74, 143, 1);
   }
   
@@ -108,3 +108,7 @@
     background-color: #000;
   }
   
+  button:focus, button:active {
+    background-color: #ffaa00; 
+    outline: none; 
+  }
