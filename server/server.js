@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
-const cors = require('cors')
+//const cors = require('cors')
 const authRoutes = require('./src/routes/authRoutes')
 const pokemonRoutes = require('./src/routes/PokemonRoutes')
 const pokedexRoutes = require('./src/routes/pokedexRoutes');
@@ -14,13 +14,6 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(passport.initialize())
 
-const corsOptions = {
-  origin: 'https://pokemon-pern-app.onrender.com', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  
-  allowedHeaders: ['Content-Type'], 
-};
-
-app.use(cors(corsOptions));
 //initialize routes
 app.use('/api', authRoutes)
 app.use('/api/v1/pokemon', pokemonRoutes)
