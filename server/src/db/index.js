@@ -10,7 +10,4 @@ const pool = new Pool({
   }
 });
 
-module.exports = {
-  CLIENT_URL: process.env.CLIENT_URL,
-  pool
-};
+module.exports = pool;

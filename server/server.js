@@ -13,8 +13,14 @@ require('./src/middleware/middleware');
 app.use(express.json())
 app.use(cookieParser())
 app.use(passport.initialize())
-app.use(cors({ origin: CLIENT_URL, credentials: true }))
 
+const corsOptions = {
+  origin: 'https://pokemon-pern-app.onrender.com', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+  allowedHeaders: ['Content-Type'], 
+};
+
+app.use(cors(corsOptions));
 //initialize routes
 app.use('/api', authRoutes)
 app.use('/api/v1/pokemon', pokemonRoutes)
