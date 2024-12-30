@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { DATABASE_URL} = require('./src/DB/index')
+const { DATABASE_URL} = require('./src/db/index')
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
 const cors = require('cors')
