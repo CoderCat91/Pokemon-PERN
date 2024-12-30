@@ -7,6 +7,16 @@ const pool = new Pool({
   },
 })
 
+pool.connect()
+  .then(client => {
+    console.log('Successfully connected to the database!');
+    client.release();
+  })
+  .catch(err => {
+    console.error('Database connection error:', err.stack);
+  });
+
+
 
 
 
