@@ -13,7 +13,7 @@ require('./src/middleware/middleware');
 app.use(express.json())
 app.use(cookieParser())
 app.use(passport.initialize())
-app.use(cors({ origin: CLIENT_URL, credentials: true }))
+app.use(cors({ origin: DATABASE_URL, credentials: true }))
 
 //initialize routes
 app.use('/api', authRoutes)
