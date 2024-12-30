@@ -16,9 +16,11 @@ app.use(passport.initialize())
 
 const corsOptions = {
   origin: 'https://pokemon-pern-app.onrender.com', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],  
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type'], 
+  credentials: true,  
 };
+
 
 app.use(cors(corsOptions));
 //initialize routes
