@@ -1,19 +1,19 @@
 const express = require('express');
 const app = express();
-const { DATABASE_URL} = require('./src/db/index')
 const cookieParser = require('cookie-parser')
 const passport = require('passport')
 const cors = require('cors')
 const authRoutes = require('./src/routes/authRoutes')
 const pokemonRoutes = require('./src/routes/PokemonRoutes')
-const pokedexRoutes = require('./src/routes/pokedexRoutes')
+const pokedexRoutes = require('./src/routes/pokedexRoutes');
+const { CLIENT_URL } = require('./src/db/index');
 require('./src/middleware/middleware');
 
 
 app.use(express.json())
 app.use(cookieParser())
 app.use(passport.initialize())
-app.use(cors({ origin: DATABASE_URL, credentials: true }))
+app.use(cors({ origin: CLIENT_URL, credentials: true }))
 
 //initialize routes
 app.use('/api', authRoutes)
