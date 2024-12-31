@@ -20,24 +20,8 @@ export async function onLogout() {
 
 
 
-export async function fetchProtectedInfo() {
-  
-  const token = localStorage.getItem('userToken'); 
-  if (!token) {
-    throw new Error('No authentication token found');
-  }
-
-  try {
-    const response = await axios.get('https://pokemon-pern.onrender.com/api/protected', {
-      withCredentials: true,
-      headers: {
-        'Authorization': `Bearer ${token}` 
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching protected info:', error);
-    throw error;
-  }
-}
-
+export async function fetchProtectedInfo() {  
+  return await axios.get('https://pokemon-pern.onrender.com/api/protected', {
+    withCredentials: true 
+  })
+};
