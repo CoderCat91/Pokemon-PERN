@@ -68,7 +68,7 @@ exports.login = async (req, res) => {
         return res.status(200)
             .cookie('token', token, {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
+                secure: true,
                 sameSite: 'None',
             })
             .json({
@@ -110,12 +110,12 @@ exports.logout = async (req, res) => {
         return res.status(200)
             .clearCookie('token', {
                 httpOnly: true,
-                secure: process.env.NODE_ENV === 'production',
+                secure: true,
                 sameSite: 'None',
             })
             .json({
                 success: true,
-                message: 'Logged out successfully.',
+                message: 'Logged out successfully',
             });
     } catch (error) {
         console.error('Error during logout:', error.message);
