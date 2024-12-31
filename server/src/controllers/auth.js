@@ -11,7 +11,7 @@ exports.getUsers = async (req, res) => {
             users: rows,
         });
     } catch (error) {
-        console.log(error.message);
+        console.error('Error fetching users:', error.message);
         return res.status(500).json({
             error: 'An error occurred while fetching users.',
         });
@@ -38,57 +38,69 @@ exports.register = async (req, res) => {
             message: 'Registration was successful.',
         });
     } catch (error) {
-        console.log(error.message);
+        console.error('Error during registration:', error.message);
         return res.status(500).json({
-            error: error.message,
+            error: 'Internal server error.',
         });
     }
 };
 
 exports.login = async (req, res) => {
     let user = req.user;
+    if (!user) {
+        return res.status(401).json({
+            success: false,
+            message: 'Invalid credentials.',
+        });
+    }
+
     console.log('User logging in:', user);
+
     let payload = {
         id: user.id,
         email: user.email,
     };
 
     try {
-       
         const token = await sign(payload, SECRET, { expiresIn: '1h' });
+        console.log('Generated Token:', token);
 
         return res.status(200)
-            .cookie('token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' })
+            .cookie('token', token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'None',
+            })
             .json({
                 success: true,
                 message: 'Logged in successfully',
                 userId: user.id,
             });
     } catch (error) {
-        console.log(error.message);
+        console.error('Error during login:', error.message);
         return res.status(500).json({
-            error: error.message,
+            error: 'Internal server error.',
         });
     }
 };
 
 exports.protected = async (req, res) => {
+    if (!req.user) {
+        return res.status(401).json({
+            success: false,
+            message: 'Unauthorized access.',
+        });
+    }
+
     try {
-
-        if (!req.user) {
-            return res.status(401).json({
-                success: false,
-                message: 'Unauthorized access',
-            });
-        }
-
         return res.status(200).json({
+            success: true,
             info: 'Protected info',
         });
     } catch (error) {
-        console.log(error.message);
+        console.error('Error fetching protected info:', error.message);
         return res.status(500).json({
-            error: error.message,
+            error: 'Internal server error.',
         });
     }
 };
@@ -96,15 +108,19 @@ exports.protected = async (req, res) => {
 exports.logout = async (req, res) => {
     try {
         return res.status(200)
-            .clearCookie('token', { httpOnly: true, secure: process.env.NODE_ENV === 'production' })
+            .clearCookie('token', {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === 'production',
+                sameSite: 'None',
+            })
             .json({
                 success: true,
-                message: 'Logged out successfully',
+                message: 'Logged out successfully.',
             });
     } catch (error) {
-        console.log(error.message);
+        console.error('Error during logout:', error.message);
         return res.status(500).json({
-            error: error.message,
+            error: 'Internal server error.',
         });
     }
 };
