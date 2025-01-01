@@ -131,8 +131,6 @@ h1 {
     }
 }
 
-  
-
 .login-inner {
     width: 100%;
     padding: 0px 15px;
@@ -147,4 +145,17 @@ h1 {
   }
   
 
-  
+  @media (max-width: 1200px) {
+    .picture-wrapper {
+        display: none;
+    }
+
+    .login-inner {
+        width: 100%;
+        padding: 0px 15px;
+    }
+
+    .pokemon-logo img {
+        width: 250px;
+    }
+}

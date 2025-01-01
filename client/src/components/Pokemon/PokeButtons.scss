@@ -112,3 +112,10 @@
     background-color: #ffaa00; 
     outline: none; 
   }
+
+  @media (max-width: 767px) {
+    .btn-primary {
+      margin: 10px;
+
+    }
+  }

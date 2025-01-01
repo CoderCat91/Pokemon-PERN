@@ -43,8 +43,8 @@ const Pokemon = () => {
         return;
       }
 
-      const { data: pokedexData } = await PokedexFinder.get(`/${userId}`);
-      const pokemonInPokedex = pokedexData.some((pokemon) => pokemon.pokemon_num === pokemonId);
+      const { data: pokemon } = await PokedexFinder.get(`/${userId}`);
+      const pokemonInPokedex = pokemon.some((pokemon) => pokemon.pokemon_num === pokemonId);
   
       if (pokemonInPokedex) {
         alert("This Pokémon is already in your Pokédex!");
