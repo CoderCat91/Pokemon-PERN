@@ -47,6 +47,8 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     let user = req.user;
+    console.log('req.user:', req.user);
+
     if (!user) {
         return res.status(401).json({
             success: false,
@@ -62,7 +64,8 @@ exports.login = async (req, res) => {
     };
 
     try {
-        const token = await sign(payload, SECRET, { expiresIn: '1h' });
+        const token = sign({ user_id: user.user_id }, SECRET, { expiresIn: '1h' });
+
         console.log('Generated Token:', token);
 
         return res.status(200)

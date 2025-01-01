@@ -37,7 +37,7 @@ passport.use(
 
       const { rows } = await db.query(
         'SELECT user_id, email FROM users WHERE user_id = $1',
-        [id]
+        [user_id]
       );
 
       if (rows.length === 0) {
@@ -45,7 +45,7 @@ passport.use(
       }
 
       const user = { user_id: rows[0].user_id, email: rows[0].email };
-
+      console.log('Authenticated user:', user);
       return done(null, user);
     } catch (error) {
       console.error(`Error during JWT authentication: ${error.message}`);
