@@ -63,8 +63,11 @@
 }
 
   
-.navbar-collapse:active {
-    display: flex;
-    flex-direction: column;
-    background-color: white;
+
+
+@media (max-width: 767px) {
+    .navbar-nav {
+        display: flex;
+        flex-direction: column;
+    }
 }
