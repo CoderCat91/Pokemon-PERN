@@ -36,6 +36,21 @@ const Pokemon = () => {
   const addPokemonToPokedex = async (pokemonId) => {
     try {
       const userId = localStorage.getItem('userId');
+
+
+      if (!userId) {
+        alert("You must log in first to add Pokémon to your Pokédex.");
+        return;
+      }
+
+      const { data: pokedexData } = await PokedexFinder.get(`/user/${userId}/pokedex`);
+      const pokemonInPokedex = pokedexData.some((pokemon) => pokemon.pokemon_num === pokemonId);
+  
+      if (pokemonInPokedex) {
+        alert("This Pokémon is already in your Pokédex!");
+        return; 
+      }
+
       const selectedPokemon = pokemons.find((pokemon) => pokemon.id === pokemonId);
       const { pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image } = selectedPokemon;
       await PokedexFinder.post('/add', {
