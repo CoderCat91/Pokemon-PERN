@@ -19,9 +19,9 @@ router.post('/add', async (req, res) => {
         }
         const { name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image} = pokemon.rows[0];
         const result = await db.query(
-            `INSERT INTO pokedex (id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image)
+            `INSERT INTO pokedex (user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image)
              VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) RETURNING *`,
-            [id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image]
+            [user_id, pokemon_num, name, type, health, attacks, evolves_into, images, subtype, height, weight, description, weakness, strength, second_attack, evolve_image]
         );
         res.status(201).json({ message: "Pokemon added to Pokedex", data: result.rows[0] });
     } catch (error) {

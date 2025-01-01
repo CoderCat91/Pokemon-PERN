@@ -43,7 +43,7 @@ const Pokemon = () => {
         return;
       }
 
-      const { data: pokedexData } = await PokedexFinder.get(`/user/${userId}/pokedex`);
+      const { data: pokedexData } = await PokedexFinder.get(`/${userId}`);
       const pokemonInPokedex = pokedexData.some((pokemon) => pokemon.pokemon_num === pokemonId);
   
       if (pokemonInPokedex) {
