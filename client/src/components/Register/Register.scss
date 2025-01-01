@@ -104,8 +104,8 @@ input {
         width: 180px;
     }
 
-    .info-wrapper  {
-        display: none;
+    .picture-wrapper img {
+        height: 300px;
     }
 
     .register-inner {
@@ -146,7 +146,7 @@ input {
         display: none;
     }
 
-    .register-inner {
+    .login-inner {
         width: 100%;
         padding: 0px 15px;
     }

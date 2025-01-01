@@ -37,9 +37,12 @@ const Register = () => {
   return (
     <>
     <div className='register-page'>
-          <div className='pokemon-logo'>
+    <NavLink to='/'>
+    <div className='pokemon-logo'>
             <img src={logo} alt="pokemon logo"/>
           </div>
+          </NavLink>
+
           <p className='slogan'>Gotta catch 'em all!</p>
  <Container fluid className='register-wrapper'>
   <Row>

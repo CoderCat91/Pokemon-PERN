@@ -26,7 +26,7 @@ const Header = () => {
       <Navbar.Collapse id="basic-navbar-nav" className='navbar-col'>
         <Nav className="me-auto">
         <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-           <div className='hexagon'> <span>Home</span></div>
+  <span>Home</span>
           </NavLink>
           <NavLink to='/pokemon' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
             <div className="hexagon"><span>Pokémon</span></div>
