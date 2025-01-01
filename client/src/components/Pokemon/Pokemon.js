@@ -73,7 +73,7 @@ const Pokemon = () => {
       });
       navigate(`/pokedex`);
     } catch (error) {
-      alert("There was an error adding the Pokémon to your Pokédex.");
+     
     }
   };
 

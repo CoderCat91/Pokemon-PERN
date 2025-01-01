@@ -26,7 +26,7 @@ router.post('/add', async (req, res) => {
         res.status(201).json({ message: "Pokemon added to Pokedex", data: result.rows[0] });
     } catch (error) {
       console.log("Error adding Pokemon to Pokedex:", error);
-      res.status(500).json({ message: "Failed to add Pokemon to Pokedex" });
+      res.status(500).json();
     }
   });
   
