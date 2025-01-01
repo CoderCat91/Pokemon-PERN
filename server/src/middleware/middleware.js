@@ -29,14 +29,14 @@ const opts = {
 
 // Passport JWT Strategy
 passport.use(
-  new Strategy(opts, async ({ id }, done) => {
+  new Strategy(opts, async ({ user_id }, done) => {
     try {
-      if (!id) {
+      if (!user_id) {
         return done(null, false, { message: 'Missing user ID in JWT payload' });
       }
 
       const { rows } = await db.query(
-        'SELECT id, email FROM users WHERE id = $1',
+        'SELECT user_id, email FROM users WHERE user_id = $1',
         [id]
       );
 
@@ -44,7 +44,7 @@ passport.use(
         return done(null, false, { message: 'User not found' });
       }
 
-      const user = { id: rows[0].id, email: rows[0].email };
+      const user = { user_id: rows[0].user_id, email: rows[0].email };
 
       return done(null, user);
     } catch (error) {
