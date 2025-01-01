@@ -57,7 +57,7 @@ exports.login = async (req, res) => {
     console.log('User logging in:', user);
 
     let payload = {
-        user_id: user.id,
+        id: user.user_id,
         email: user.email,
     };
 
@@ -74,7 +74,7 @@ exports.login = async (req, res) => {
             .json({
                 success: true,
                 message: 'Logged in successfully',
-                userId: user.id,
+                userId: user.user_id,
             });
     } catch (error) {
         console.error('Error during login:', error.message);
