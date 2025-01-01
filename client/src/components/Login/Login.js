@@ -48,7 +48,7 @@ const Login = () => {
     <p className='slogan'>Gotta catch 'em all!</p>
       <Container fluid className='login-wrapper'>
         <Row>
-          <Col xl={6}>
+          <Col xl={6} sm={3}>
         <div className='login-inner'>
           <form onSubmit={(e) => onSubmit(e)} className='container mt-3'>
             <h1>Login</h1>
