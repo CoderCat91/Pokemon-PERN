@@ -63,5 +63,8 @@
 }
 
   
-  
-  
+.navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
