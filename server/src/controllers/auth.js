@@ -5,7 +5,7 @@ const { SECRET } = require('../constants');
 
 exports.getUsers = async (req, res) => {
     try {
-        const { rows } = await db.query('SELECT id, email FROM users');
+        const { rows } = await db.query('SELECT user_id, email FROM users');
         return res.status(200).json({
             success: true,
             users: rows,
@@ -57,7 +57,7 @@ exports.login = async (req, res) => {
     console.log('User logging in:', user);
 
     let payload = {
-        id: user.id,
+        user_id: user.id,
         email: user.email,
     };
 
