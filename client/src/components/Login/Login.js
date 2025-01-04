@@ -4,8 +4,8 @@ import Footer from '../Footer/Footer'
 import {NavLink} from 'react-router-dom'
 import { AuthContext } from '../../context/authContext';
 import {Row, Col, Container} from 'react-bootstrap'
-import logo from '../../images/Pokemon_logo_PNG2.png'
-import charizard from '../../images/ezgif.com-webp-to-png (6).png';
+import logo from '../../images/Pokemon_logo_PNG2.webp'
+import charizard from '../../images/ezgif.com-webp-to-png (6).webp';
 import './Login.scss';
 
 const Login = () => {

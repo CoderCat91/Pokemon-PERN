@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext} from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
 import { AuthContext } from '../../context/authContext'
@@ -7,7 +7,6 @@ import {Navbar, Container, Nav} from 'react-bootstrap'
 
 const Header = () => {
   const { isAuth, unauthenticateUser } = useContext(AuthContext) 
-
   const signOut = async () => {
     try {
       await onLogout()
@@ -19,38 +18,41 @@ const Header = () => {
     }
   }
 
+  
+
   return (
     <Navbar expand="lg" className="header-wrapper">
     <Container fluid className='header-container'>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className='navbar-col'>
         <Nav className="me-auto">
-        <NavLink to='/' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
+        <NavLink to='/'>
   <span>Home</span>
           </NavLink>
-          <NavLink to='/pokemon' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-            <div className="hexagon"><span>Pokémon</span></div>
+          <NavLink to='/pokemon'>
+          <span>Pokémon</span>
           </NavLink>
           {isAuth ? (
-          <div className='auth-div'>
-            <NavLink to='/pokedex' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <div className='hexagon'><span>Pokédex</span></div>
+            <>
+            <NavLink to='/pokedex' >
+           <span>Pokédex</span>
             </NavLink>
-            <button onClick={() => signOut()} className='logout-button' style={{ alignSelf: 'center', fontWeight: 'bolder', boxShadow: '2px 2px 2px 2px #cecccc' }}>
+            <button onClick={() => signOut()}>
               Logout
             </button>
-          </div>
+          </>
         ) : (
-          <div className='log-div'>
-            <NavLink to='/login' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-              <div className="hexagon"><span>Login</span></div>
+          <>
+            <NavLink to='/login'>
+            <span>Login</span>
             </NavLink>
 
-            <NavLink to='/register' style={{ textDecoration: 'none', color: 'black', alignSelf: 'center' }}>
-             <div className='hexagon'><span>Register</span></div> 
+            <NavLink to='/register'>
+             <span>Register</span>
             </NavLink>
-          </div>
+            </>
         )}
+        
         </Nav>
       </Navbar.Collapse>
     </Container>

@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { onRegistration } from '../../api/auth'
-import logo from '../../images/Pokemon_logo_PNG2.png'
+import logo from '../../images/Pokemon_logo_PNG2.webp'
 import {NavLink} from 'react-router-dom'
 import {Container, Row, Col} from 'react-bootstrap'
 import Footer from '../Footer/Footer'
-import image from '../../images/ezgif.com-webp-to-png (3).png'
+import image from '../../images/ezgif.com-webp-to-png (3) (1).webp'
 import './Register.scss';
 
 const Register = () => {
