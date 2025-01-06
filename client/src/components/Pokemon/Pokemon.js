@@ -13,7 +13,7 @@ const Pokemon = () => {
   const { pokemons, setPokemons } = useContext(PokemonContext);
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
       try {
@@ -102,30 +102,42 @@ const Pokemon = () => {
       />
       <Container fluid className="pokemon-container">
         <Row className="pokemon-row">
-          {filteredPokemons &&
-            filteredPokemons
-              .sort(({ id: previousID }, { id: currentID }) => previousID - currentID)
-              .map((pokemon) => (
-                <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.id}>
-                  <div className="pokemon-image-wrapper">
-                    <Card.Title>
-                      <h5>#{pokemon.pokemon_num}</h5>
-                    </Card.Title>
-                    <Card.Img src={pokemon.images} alt={pokemon.name} />
-                  </div>
-                  <Card.Body>
-                    <Card.Text>
-                      <h5>{pokemon.name}</h5>
-                      <button
-                        onClick={() => addPokemonToPokedex(pokemon.id)}
-                        className="btn btn-warning"
-                      >
-                        Add to PokéDex
-                      </button>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              ))}
+        {filteredPokemons &&
+  filteredPokemons
+    .sort(({ id: previousID }, { id: currentID }) => previousID - currentID)
+    .map((pokemon) => {
+      
+      return (
+        <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.id}>
+          <div className="pokemon-image-wrapper">
+            <Card.Title>
+              <h5>#{pokemon.pokemon_num}</h5>
+            </Card.Title>
+
+            {loading && <div className="image-loader"></div>}
+
+            <Card.Img
+              src={pokemon.images}
+              alt={pokemon.name}
+              onLoad={() => setLoading(false)}
+              style={{ display: loading ? "none" : "block" }}
+            />
+          </div>
+          <Card.Body>
+            <Card.Text>
+              <h5>{pokemon.name}</h5>
+              <button
+                onClick={() => addPokemonToPokedex(pokemon.id)}
+                className="btn btn-warning"
+              >
+                Add to PokéDex
+              </button>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      );
+    })}
+
         </Row>
       </Container>
     </div>
