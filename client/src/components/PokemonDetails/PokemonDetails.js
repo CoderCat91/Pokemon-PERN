@@ -110,11 +110,11 @@ if (loading) {
             <Row className="card-inner">
               <Col>
               <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
-              <p><span>Height:</span> {selectedPokemon.height}m</p>
-              <p><span>Weight:</span> {selectedPokemon.weight}kg</p>
-                <p><span>Health:</span> {selectedPokemon.health} HP</p>
-                <p><span>Attack:</span> {selectedPokemon.attacks}</p>
-                <p><span>Other attack:</span> {selectedPokemon.second_attack}</p>
+              <p><span>Height</span> {selectedPokemon.height}m</p>
+              <p><span>Weight</span> {selectedPokemon.weight}kg</p>
+                <p><span>Health</span> {selectedPokemon.health} HP</p>
+                <p><span>Attack</span> {selectedPokemon.attacks}</p>
+                <p><span>Other attack</span> {selectedPokemon.second_attack}</p>
               </Card>
               </Col>
               <Col>
@@ -155,7 +155,7 @@ if (loading) {
 <Row>
   <Col>
     <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
-      <p><span>Evolves into:</span> {selectedPokemon.evolves_into}</p>
+      <span>Evolves into:</span><p>{selectedPokemon.evolves_into}</p>
       {selectedPokemon.evolve_image ? (
         <img src={selectedPokemon.evolve_image} alt="Evolution" />
       ) : null}

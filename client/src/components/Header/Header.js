@@ -1,18 +1,19 @@
 import { useContext} from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import './Header.scss'
 import { AuthContext } from '../../context/authContext'
 import { onLogout } from '../../api/auth'
 import {Navbar, Container, Nav} from 'react-bootstrap'
 
 const Header = () => {
+  const navigate = useNavigate();
   const { isAuth, unauthenticateUser } = useContext(AuthContext) 
   const signOut = async () => {
     try {
       await onLogout()
-
       unauthenticateUser() 
-      localStorage.removeItem('isAuth') 
+      localStorage.removeItem('isAuth');
+      navigate('/');
     } catch (error) {
       console.log(error.response)
     }
@@ -37,7 +38,7 @@ const Header = () => {
             <NavLink to='/pokedex' >
            <span>Pokédex</span>
             </NavLink>
-            <button onClick={() => signOut()}>
+            <button className="logout-button" onClick={() => signOut()}>
               Logout
             </button>
           </>

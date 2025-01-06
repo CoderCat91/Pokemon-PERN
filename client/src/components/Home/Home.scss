@@ -1,9 +1,9 @@
 @import '../../common/style.scss';
 
 .home-page {
-    height: 100vh;
     width: 100%;
-    background-image: url('../../images/pattern-png-30769.webp');
+    position: relative;
+    background-image: url('../../images//pattern-png-30769.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -18,11 +18,25 @@
 .home-container {
    width: 100%;
    height: auto;
+   padding-left: 0px !important;
+   padding-right: 0px !important;
+
 }
+
+.home-intro {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+.home-inner {
+    width: 100%;
+
+}
+
 .home-inner p {
     background-color: white;
-    width: 80%;
-    margin: 30px auto;
+    width: 70%;
+    margin: 0 auto;
     padding: 20px;
     font-family: "Titillium Web", serif;
     font-weight: bold;
@@ -35,6 +49,8 @@
     height: auto;
     width: 100%;
     margin: 0 auto;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
     padding-bottom: 100px;
 }
 
@@ -42,10 +58,12 @@ a {
     text-decoration: none;
 }
 .ven-fig, .char-fig, .blas-fig {
+    text-align: center;
+    margin: 0 auto;
  display: flex;
  justify-content: center;
     height: 350px;
-    width: 300px;
+    width: 400px;
     margin-top: 40px;
     border-radius: 8px;
     font-weight: bold;
@@ -63,24 +81,25 @@ a {
     background-image: url('../../images/8764038.webp');
     background-position: center;
     background-size: cover;
-    box-shadow: 0px 0px 8px rgb(4, 125, 14);
+    box-shadow: 8px 8px 2px 1px rgba(4, 125, 14, 0.25);
 }
 .char-fig {
     background-image:url('../../images/red-grunge-background.webp');
     background-position: center;
     background-size: cover;
-    box-shadow: 0px 0px 8px rgb(175, 3, 3);
+    box-shadow: 8px 8px 2px 1px rgba(175, 3, 3, 0.25);
 }
 
 .blas-fig {
     background-image:url('../../images/83.webp');
     background-position: center;
     background-size: cover;
-    box-shadow: 0px 0px 8px rgb(16, 1, 157);
+    box-shadow: 8px 8px 2px 1px rgba(16, 1, 157, 0.25);
 
 }
 .char-fig img, .ven-fig img {
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     aspect-ratio: auto;
     background-size: cover;
 }
@@ -106,16 +125,38 @@ a {
 
 }
 
+
 .home-media .row {
+
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
   }
+
+.tcg-col, .games-col , .movies-col {
+width: 750px;
+display: flex;
+  }
+
   
   .home-media .row:nth-child(even) {
     flex-direction: row-reverse; 
   }
 
-  
+
+
+.tcg-card, .movies-card, .games-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  text-align: left;
+  align-self: center;
+}
+
+
+
   @media (max-width: 767px) {
 
     .card {
