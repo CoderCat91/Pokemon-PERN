@@ -23,7 +23,7 @@ h2 {
 
 .detail-card {
     width: 85%;
-    height: auto;
+    height: 1200px;
     background-color: rgb(255, 255, 255);
     margin: 20px auto;
     border-radius: 8px;
@@ -87,6 +87,8 @@ h2 {
     .col {
       display: flex;
     }
+
+
 .card {
   align-self: center;
 }
@@ -112,6 +114,7 @@ span {
   }
   .card-middle {
     width: 90%;
+    margin: 0 auto;
   }
   .card-middle p {
       font-weight: 400;
@@ -119,6 +122,7 @@ span {
   
   .card-bottom {
     width: 90%;
+    margin: 0 auto;
   }
 .card-bottom img {
   height: 200px;
@@ -360,6 +364,7 @@ background-size: cover;
 .pokemon-type, .pokemon-subtype, .strength-type, .weakness-type {
   height: 30px;
   width: 100px;
+  text-align: center;
   border-radius: 5px;
   font-weight: bold;
   padding: 2px;
