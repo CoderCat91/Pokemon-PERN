@@ -96,6 +96,7 @@ h2 {
   text-align: center;
     width: 100%;
     height: auto;
+    padding: 10px;
     border-radius: 20px;
     margin: 0 auto;
 }
@@ -111,10 +112,12 @@ span {
 .card-right {
   background-color: #fff;
   width: 90%;
+  margin: 10px;
   }
   .card-middle {
     width: 90%;
     margin: 0 auto;
+    margin: 10px;
   }
   .card-middle p {
       font-weight: 400;
@@ -124,6 +127,7 @@ span {
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    margin: 10px;
   }
 .card-bottom img {
   height: 200px;
@@ -350,8 +354,6 @@ background-size: cover;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 8px;
-  margin: 10px;
   margin-bottom: 10px;
   span {
     position: absolute;
