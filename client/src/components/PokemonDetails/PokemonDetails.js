@@ -155,7 +155,7 @@ if (loading) {
 <Row>
   <Col>
     <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
-      <span>Evolves into:</span><p>{selectedPokemon.evolves_into}</p>
+     <p><span>Evolves into:</span>{selectedPokemon.evolves_into}</p>
       {selectedPokemon.evolve_image ? (
         <img src={selectedPokemon.evolve_image} alt="Evolution" />
       ) : null}
