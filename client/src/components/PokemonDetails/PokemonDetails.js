@@ -130,7 +130,7 @@ if (loading) {
               </Col>
               </Row>
 <Row>
-  <Col>
+  <Col xs={12}>
   <Card className={`card-middle ${selectedPokemon.type.toLowerCase()}`}>
     <div className="type-row"><span>Type</span>
     <div className={`pokemon-type ${selectedPokemon.type.toLowerCase()}`}>{selectedPokemon.type}</div>
@@ -153,7 +153,7 @@ if (loading) {
               
 </Row>
 <Row>
-  <Col>
+  <Col xs={12}>
     <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
      <p><span>Evolves into:</span>{selectedPokemon.evolves_into}</p>
       {selectedPokemon.evolve_image ? (
@@ -169,6 +169,7 @@ if (loading) {
               </Col>
               
               </Row>
+
               <div className="card-button-left">
                 <button onClick={goToPreviousPokemon} className={`button-left ${selectedPokemon.type.toLowerCase()}`}>
                   Prev

@@ -450,10 +450,8 @@ background-color: rgba(12, 187, 245, 1);
     padding: 0px;
     margin: 5px;
   }
-  .card-button-left, .card-button-right {
-    display: none;
-  }
- .button-left, .button-right {
+
+ .button-left, .button-right, .card-button-left, .card-button-right {
   position: relative;
   display: flex;
   flex-direction: row;
@@ -465,8 +463,8 @@ background-color: rgba(12, 187, 245, 1);
   color: white;
  }
  .type-row, .subtype-row, .strength-row, .weakness-row {
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
  }
  span {
   font-weight: bold;
