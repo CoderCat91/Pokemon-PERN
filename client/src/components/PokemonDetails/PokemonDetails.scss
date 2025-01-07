@@ -444,3 +444,25 @@ background-color: rgba(12, 187, 245, 1);
   color: white;
 }
 
+@media (max-width: 767px) {
+ .card-button-left, .card-button-right {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  width: 100px;
+  height: 35px;
+  background-color: black;
+  color: white;
+ }
+ .type-row, .subtype-row, .strength-row, .weakness-row {
+  flex-direction: column;
+
+ }
+ span {
+  position: relative;
+ } 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+   
+}
