@@ -108,15 +108,7 @@ if (loading) {
             <Col xs={12}>
           <div className={`detail-card ${selectedPokemon.type.toLowerCase()}`}>
             <Row className="card-inner">
-              <Col>
-              <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
-              <p><span>Height</span> {selectedPokemon.height}m</p>
-              <p><span>Weight</span> {selectedPokemon.weight}kg</p>
-                <p><span>Health</span> {selectedPokemon.health} HP</p>
-                <p><span>Attack</span> {selectedPokemon.attacks}</p>
-                <p><span>Other attack</span> {selectedPokemon.second_attack}</p>
-              </Card>
-              </Col>
+              
               <Col>
               <Card className={`card-right ${selectedPokemon.type.toLowerCase()}`}>
                 <span>#{selectedPokemon.pokemon_num}</span><br />
@@ -127,7 +119,15 @@ if (loading) {
                 <p>{selectedPokemon.description}</p>
               </Card>
               </Col>
-       
+              <Col>
+              <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
+              <p><span>Height</span> {selectedPokemon.height}m</p>
+              <p><span>Weight</span> {selectedPokemon.weight}kg</p>
+                <p><span>Health</span> {selectedPokemon.health} HP</p>
+                <p><span>Attack</span> {selectedPokemon.attacks}</p>
+                <p><span>Other attack</span> {selectedPokemon.second_attack}</p>
+              </Card>
+              </Col>
               </Row>
 <Row>
   <Col>

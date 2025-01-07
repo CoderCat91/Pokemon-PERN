@@ -104,6 +104,7 @@ h2 {
 .card-left {
 width: 90%;
 margin-left: 20px;
+padding-top: 8px;
 background-color: transparent;
 span {
   font-weight: bold;
@@ -114,6 +115,13 @@ span {
   background-color: #fff;
   width: 90%;
   margin: 0px 20px 0px 10px;
+  span {
+    padding-top: 5px;
+    font-weight: bold;
+  }
+  p {
+    padding: 8px;
+  }
   }
   .card-middle {
     width: 90%;
