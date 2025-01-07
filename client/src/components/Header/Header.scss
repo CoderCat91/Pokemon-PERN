@@ -38,6 +38,7 @@
 
 .logout-button {
     background-color: white;
+    align-self: center;
     width: 100px;
     height: 30px;
     font-weight: bold;
@@ -45,10 +46,11 @@
     border: black solid 2px;
     border-radius: 5px;
     text-transform: uppercase;
-    padding: 3px;
-    .logout-button:hover {
-        background-color: orange;
-    }
+    padding: 8px;
+    box-shadow: 21px 16px 20px -20px rgba(0,0,0,0.45);
+}
+.logout-button:hover {
+    background-color: orange;
 }
 
 
@@ -98,4 +100,5 @@
     .navbar-nav a:hover {
         background-color: rgba(247, 187, 5, 0.5);
     }
+
 }

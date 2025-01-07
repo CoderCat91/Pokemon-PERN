@@ -21,7 +21,9 @@ h2 {
   font-family: "Audiowide", sans-serif;
 }
 
-
+p {
+  font-family: "Titillium Web", serif;
+}
 .detail-card {
     width: 85%;
     height: auto;
@@ -29,9 +31,7 @@ h2 {
     margin: 20px auto;
     border-radius: 8px;
     margin-bottom: 50px;
-} p {
-  
-}
+} 
 
 .detail-card.grass { 
   border: 2px solid rgba(54, 163, 0, 0.5);
