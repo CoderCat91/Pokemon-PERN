@@ -456,10 +456,10 @@ background-color: rgba(12, 187, 245, 1);
  }
  .type-row, .subtype-row, .strength-row, .weakness-row {
   flex-direction: column;
-
+  align-items: flex-start;
  }
  span {
-  position: relative;
+  font-weight: bold;
  } 
 }
 
