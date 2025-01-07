@@ -445,6 +445,11 @@ background-color: rgba(12, 187, 245, 1);
 }
 
 @media (max-width: 767px) {
+  .card-left, .card-right, .card-middle, .card-bottom {
+    width: 100%;
+    padding: 0px;
+    margin: 5px;
+  }
  .card-button-left, .card-button-right {
   display: flex;
   justify-content: center;
