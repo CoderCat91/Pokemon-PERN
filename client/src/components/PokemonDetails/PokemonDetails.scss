@@ -450,9 +450,8 @@ background-color: rgba(12, 187, 245, 1);
     padding: 0px;
     margin: 5px;
   }
- .card-button-left, .card-button-right {
-  display: flex;
-  justify-content: center;
+ .card-button-left, .card-button-right, .button-left, .button-right {
+  position: relative;
   margin-left: 10px;
   width: 100px;
   height: 35px;
@@ -461,7 +460,7 @@ background-color: rgba(12, 187, 245, 1);
  }
  .type-row, .subtype-row, .strength-row, .weakness-row {
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: flex-start;
  }
  span {
   font-weight: bold;

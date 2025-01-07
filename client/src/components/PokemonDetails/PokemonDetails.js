@@ -105,11 +105,11 @@ if (loading) {
           <Row>
             
       
-            <Col xs={12}>
+            <Col xl={12}>
           <div className={`detail-card ${selectedPokemon.type.toLowerCase()}`}>
             <Row className="card-inner">
               
-              <Col>
+              <Col xl={6}>
               <Card className={`card-right ${selectedPokemon.type.toLowerCase()}`}>
                 <span>#{selectedPokemon.pokemon_num}</span><br />
                 <h2>{selectedPokemon.name}</h2>
@@ -119,7 +119,7 @@ if (loading) {
                 <p>{selectedPokemon.description}</p>
               </Card>
               </Col>
-              <Col>
+              <Col xl={6}>
               <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
               <p><span>Height</span> {selectedPokemon.height}m</p>
               <p><span>Weight</span> {selectedPokemon.weight}kg</p>
