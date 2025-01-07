@@ -112,12 +112,13 @@ span {
 .card-right {
   background-color: #fff;
   width: 90%;
-  margin: 10px;
+  margin: 20px;
   }
   .card-middle {
     width: 90%;
     margin: 0 auto;
-    margin: 10px;
+    margin: 20px;
+    justify-content: center;
   }
   .card-middle p {
       font-weight: 400;
@@ -125,9 +126,10 @@ span {
   
   .card-bottom {
     width: 90%;
+    justify-content: center;
     margin: 0 auto;
     text-align: center;
-    margin: 10px;
+    margin: 20px;
   }
 .card-bottom img {
   height: 200px;
@@ -348,7 +350,9 @@ height: 200px;
 width: 200px;
 background-size: cover;
 }
-
+.type-row {
+  padding-top: 10px;
+}
 .type-row, .subtype-row, .strength-row, .weakness-row {
   width: 100%;
   display: flex;
