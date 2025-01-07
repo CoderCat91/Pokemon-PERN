@@ -450,8 +450,14 @@ background-color: rgba(12, 187, 245, 1);
     padding: 0px;
     margin: 5px;
   }
- .card-button-left, .card-button-right, .button-left, .button-right {
+  .card-button-left, .card-button-right {
+    display: none;
+  }
+ .button-left, .button-right {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   margin-left: 10px;
   width: 100px;
   height: 35px;
