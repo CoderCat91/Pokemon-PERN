@@ -32,9 +32,10 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/pokemon' element={<Pokemon />} />
+        <Route path='/pokedex' element={<PokeDex />} />
         <Route path="/details/:pokemon_num" element={<PokemonDetails />} />
         <Route element={<PrivateRoutes />}>
-          <Route path='/pokedex' element={<PokeDex />} />
+
         </Route>
 
         <Route element={<RestrictedRoutes />}>
