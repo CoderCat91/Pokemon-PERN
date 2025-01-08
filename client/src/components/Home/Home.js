@@ -21,8 +21,7 @@ const Home = () => {
           <Row>
             <Col className="home-col"xl={12}>
         <div className="home-inner">
-         <p className='home-intro'>Everyone remembers the 1996 epic creation that is Pokémon. Whether you collected the cards, watched the shows or played the games, Pokémon was probably part of your childhood.
-         <br/>Our Pokémon page features the original 151 Pokémon!
+         <p className='home-intro'>Our Pokémon page features the original 151 Pokémon!
          Use the Pokémon page to add your favourite Pokémon to your own personal Pokédex to learn more about your favourite pocket monsters!
          </p>
          <Container fluid className="home-media">
