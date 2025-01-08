@@ -98,7 +98,6 @@ if (loading) {
   return (
     <div className="details-page">
       <Header/>
-        <SearchBar/>
 
       {selectedPokemon && (
         <Container fluid className="detail-wrapper">
@@ -119,7 +118,7 @@ if (loading) {
                 <p>{selectedPokemon.description}</p>
               </Card>
               </Col>
-              <Col xl={6}>
+              <Col className="card-col" xl={6}>
               <Card className={`card-left ${selectedPokemon.type.toLowerCase()}`}>
               <p><span>Height</span> {selectedPokemon.height}m</p>
               <p><span>Weight</span> {selectedPokemon.weight}kg</p>
@@ -139,11 +138,11 @@ if (loading) {
     <div className={`pokemon-subtype ${selectedPokemon.subtype.toLowerCase()}`}>{selectedPokemon.subtype}</div>
     </div>
   
-<div className="strength-row"><span>Strengths</span>
+<div className="strength-row"><i class="bi bi-plus-square" style={{color: 'green'}}></i>
 {colourCoderStrength()}
 </div>
- <div className="weakness-row"><span>Weaknesses</span>
- {colourCoderWeakness()}
+ <div className="weakness-row"><i class="bi bi-dash-square" style={{color: 'red'}}></i>
+{colourCoderWeakness()}
 </div>
  
 
@@ -169,8 +168,8 @@ if (loading) {
               </Col>
               
               </Row>
-
-              <div className="card-button-left">
+<div className='button-container'>
+<div className="card-button-left">
                 <button onClick={goToPreviousPokemon} className={`button-left ${selectedPokemon.type.toLowerCase()}`}>
                   Prev
                 </button>
@@ -180,6 +179,8 @@ if (loading) {
                   Next
                 </button>
               </div>
+</div>
+              
         </Container>
         
       )}

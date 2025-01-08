@@ -8,6 +8,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+} p {
+    padding: 8px;
 }
 
 .home-text {
@@ -20,29 +22,33 @@
    height: auto;
    padding-left: 0px !important;
    padding-right: 0px !important;
-
+}
+.home-container .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.home-col {
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .home-intro {
+    width: 70%;
     margin: 0 auto;
     text-align: center;
+    font-size: 1.2rem;
+  border: solid 4px orange;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px #cecccc;
+  background-color: white;
+  font-weight: bold;
+  font-family: "Titillium Web", serif;
+  } br {
+    margin-bottom:  1em;
   }
 
 .home-inner {
     width: 100%;
-
-}
-
-.home-inner p {
-    background-color: white;
-    width: 70%;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: "Titillium Web", serif;
-    font-weight: bold;
-    border: 1px solid black;
-    border-radius: 8px;
-    box-shadow: 8px 8px 2px 1px  rgba(0, 0, 0, 0.25)
 }
 
 .home-media {
@@ -56,8 +62,8 @@
 
 a {
     text-decoration: none;
-
 }
+
 .ven-fig, .char-fig, .blas-fig {
     text-align: center;
     margin: 0 auto;
@@ -126,9 +132,7 @@ a {
 
 }
 
-
 .home-media .row {
-
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -140,13 +144,10 @@ a {
 width: 750px;
 display: flex;
   }
-
   
-  .home-media .row:nth-child(even) {
+.home-media .row:nth-child(even) {
     flex-direction: row-reverse; 
-  }
-
-
+}
 
 .tcg-card, .movies-card, .games-card {
     width: 100%;
@@ -154,11 +155,18 @@ display: flex;
     justify-content: center;
   text-align: left;
   align-self: center;
+  text-align: center;
+  font-size: 1.2rem;
+  padding:8px;
+  border: solid 4px orange;
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 2px #cecccc;
+  background-color: white;
+  font-weight: bold;
+  font-family: "Titillium Web", serif;
 }
 
-
-
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
     .card {
         width: 90%;
     }

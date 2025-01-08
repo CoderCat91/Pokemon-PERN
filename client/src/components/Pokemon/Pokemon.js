@@ -109,10 +109,11 @@ const Pokemon = () => {
       
       return (
         <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.id}>
-          <div className="pokemon-image-wrapper">
-            <Card.Title>
+                     <Card.Title>
               <h5>#{pokemon.pokemon_num}</h5>
             </Card.Title>
+          <div className="pokemon-image-wrapper">
+ 
 
             {loading && <div className="image-loader"></div>}
 

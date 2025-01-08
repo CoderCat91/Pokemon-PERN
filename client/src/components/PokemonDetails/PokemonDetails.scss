@@ -87,7 +87,7 @@ p {
     box-shadow: -12px -12px 2px 1px  rgba(114, 74, 143, 0.2);
   }
 
-    .col {
+    .card-col {
       display: flex;
     }
 
@@ -125,6 +125,8 @@ span {
   }
   p {
     padding: 8px;
+    font-family: "Titillium Web", serif;
+    margin-bottom: 2px;
   }
   }
   .card-middle {
@@ -374,7 +376,13 @@ background-size: cover;
     color: black;
     font-weight: bold;
     font-size: 1rem;
+  } 
+  i {
+    position: absolute;
+    left: 1%;
+    font-size: 1.5rem;
   }
+  
 }
 
 
@@ -458,37 +466,40 @@ background-color: rgba(12, 187, 245, 1);
     padding: 0px;
     margin: 10px;
   }
-
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
  .button-left, .button-right, .card-button-left, .card-button-right {
-  margin-left: 10px;
+  margin: 0px;
   width: 100px;
   height: 35px;
   background-color: black;
   color: white;
-  position: fixed;
-  bottom: 10px;
-  top: auto;
-  transform: none; 
-  width: 45%; 
+  position: relative;
+  border-radius: 8px;
  }
+.button-left:hover, .button-right:hover {
+  background-color: orange;
+}
  .type-row, .subtype-row, .strength-row, .weakness-row {
   flex-wrap: wrap;
   justify-content: center;
  }
 
- .strength-type, .weakness-type {
-  margin-left: 30px;
- }
- span {
-  font-weight: bold;
- } 
- .card-button-left {
-  left: 5%;
+
+.button-right:before, .button-left:before {
+  background-color: transparent;
+  height: 0px;
 }
 
-.card-button-right {
-  right: 5%;
-}
+ span {
+
+  font-weight: bold;
+
+ } 
+
 }
 
 

@@ -96,16 +96,31 @@ const navigate = useNavigate();
       <Header/>
         <SearchBar/>
       <h2>Pokédex</h2>
-      <p>Hey! Welcome to your Pokedex, I'm a tool you can use to learn more about Pokemon.<br/>
-        You can only have one unique Pokemon in your Pokedex at once, so choose wisely! <br/>
-        Also, your Pokemon will level up after 24 hours, every ten levels you will be able to evolve your Pokemon!
+      <div className="pokedex-para">
+        <h4>Hey! Welcome to your Pokédex!<br/></h4>
+        <p>I'm a tool you can use to learn more about Pokémon.<br/>
+        Click on the view profile button to learn about your chosen Pokémons strengths and weaknesses. You can only have one unique Pokémon in your Pokédex at once. <br/>
+        <br/>Your Pokémon will level up after 24 hours.
       </p>
+      </div>
+      
     <Container fluid className='pokedex-container'>  
     <Row className="pokedex-row">    
  {pokedexData.map((pokemon) => (
     <Card className={`pokemon-card ${pokemon.type.toLowerCase()}`} key={pokemon.pokemon_num}>
       <Card.Title><h5>#{pokemon.pokemon_num}</h5></Card.Title>
-      <Card.Img src={pokemon.images} alt={pokemon.name} className="pokedex-image" />
+       <div className="pokemon-image-wrapper">
+       
+      
+                  {loading && <div className="image-loader"></div>}
+      
+                  <Card.Img
+                    src={pokemon.images}
+                    alt={pokemon.name}
+                    onLoad={() => setLoading(false)}
+                    style={{ display: loading ? "none" : "block" }}
+                  />
+                </div>
       <Card.Body className="pokemon-info">
         <h5>{pokemon.name}</h5>
         <p>Type: {pokemon.type}</p>

@@ -6,7 +6,7 @@ const cors = require('cors')
 const authRoutes = require('./src/routes/authRoutes')
 const pokemonRoutes = require('./src/routes/PokemonRoutes')
 const pokedexRoutes = require('./src/routes/pokedexRoutes');
-const { CLIENT_URL } = require('./src/db/index');
+//const { CLIENT_URL } = require('./src/db/index');
 require('./src/middleware/middleware');
 
 
