@@ -153,12 +153,27 @@ if (loading) {
 </Row>
 <Row>
   <Col xs={12}>
-    <Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
-     <p><span>Evolves into </span>{selectedPokemon.evolves_into}</p>
-      {selectedPokemon.evolve_image ? (
-        <img src={selectedPokemon.evolve_image} alt="Evolution" />
-      ) : null}
-    </Card>
+<Card className={`card-bottom ${selectedPokemon.type.toLowerCase()}`}>
+  <p>
+    <span>Evolves into </span>
+    {selectedPokemon.evolves_into}
+  </p>
+
+  {selectedPokemon.id === 133 ? (
+    selectedPokemon.evolve_image
+      ?.split(',')
+      .map((img, index) => (
+        <img
+          key={index}
+          src={img.trim()}
+          alt="Evolution"
+        />
+      ))
+  ) : selectedPokemon.evolve_image ? (
+    <img src={selectedPokemon.evolve_image} alt="Evolution" />
+  ) : null}
+</Card>
+
   </Col>
 </Row>
 
