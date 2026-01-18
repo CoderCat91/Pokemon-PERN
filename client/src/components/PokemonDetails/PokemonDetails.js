@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react';
 import { PokemonContext } from '../../context/PokemonContext';
 import { useParams, useNavigate } from 'react-router-dom';
 import {Container, Row, Col, Card} from 'react-bootstrap'
-import SearchBar from '../SearchBar/SearchBar';
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import './PokemonDetails.scss';
@@ -20,14 +19,14 @@ useEffect(() => {
   const fetchData = async () => {
     try {
       if (pokemons.length === 0) {
-        console.log('Pokémons not loaded yet');
+       // console.log('Pokémons not loaded yet');
         return;
       }
 
-      console.log('Fetching Pokémon details for pokemon_num:', pokemon_num);
+//      console.log('Fetching Pokémon details for pokemon id', pokemon_num);
       const pokemon = pokemons.find((pokemon) => pokemon.pokemon_num === parseInt(pokemon_num));
-      console.log('Found Pokémon:', pokemon);
-      console.log(pokemon.strength.split(", "));
+      //console.log('Found Pokémon:', pokemon);
+      //console.log(pokemon.strength.split(", "));
       setSelectedPokemon(pokemon);
     } catch (err) {
       console.error('Error fetching Pokémon details:', err);
@@ -95,6 +94,37 @@ if (loading) {
   };
   
 
+const imgString = () => {
+  const imageString = selectedPokemon.evolve_image;
+  console.log(imageString)
+  if (selectedPokemon.pokemon_num === 133) {
+    const imgArray = imageString.split(",");
+    return (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        {imgArray.map((url, index) => (
+          <img
+            key={index}
+            src={url} 
+            alt={"alt"}
+          />
+        ))}
+      </div>
+    );
+  } else if (imageString) {
+    return (
+      <div>
+        <img
+          src={imageString}
+          alt="Evolution"
+        />
+      </div>
+    );
+  } else {
+    return null;
+  }
+};
+
+
   return (
     <div className="details-page">
       <Header/>
@@ -138,10 +168,10 @@ if (loading) {
     <div className={`pokemon-subtype ${selectedPokemon.subtype.toLowerCase()}`}>{selectedPokemon.subtype}</div>
     </div>
   
-<div className="strength-row"><i class="bi bi-plus-square" style={{color: 'green'}}></i>
+<div className="strength-row"><i className="bi bi-plus-square" style={{color: 'green'}}></i>
 {colourCoderStrength()}
 </div>
- <div className="weakness-row"><i class="bi bi-dash-square" style={{color: 'red'}}></i>
+ <div className="weakness-row"><i className="bi bi-dash-square" style={{color: 'red'}}></i>
 {colourCoderWeakness()}
 </div>
  
@@ -159,19 +189,12 @@ if (loading) {
     {selectedPokemon.evolves_into}
   </p>
 
-  {selectedPokemon.id === 133 ? (
-    selectedPokemon.evolve_image
-      ?.split(',')
-      .map((img, index) => (
-        <img
-          key={index}
-          src={img.trim()}
-          alt="Evolution"
-        />
-      ))
-  ) : selectedPokemon.evolve_image ? (
-    <img src={selectedPokemon.evolve_image} alt="Evolution" />
-  ) : null}
+
+  {imgString()}
+
+
+
+
 </Card>
 
   </Col>
@@ -206,3 +229,4 @@ if (loading) {
 };
 
 export default PokemonDetails;
+
